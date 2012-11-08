@@ -1,0 +1,2 @@
+class RoviApiData
+end
