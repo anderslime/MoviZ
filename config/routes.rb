@@ -3,6 +3,7 @@ MoviZ::Application.routes.draw do
   # first created -> highest priority.
 
   root :to => 'dashboard#index'
+  resources :dashboard
 
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'

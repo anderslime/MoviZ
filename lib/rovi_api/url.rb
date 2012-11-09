@@ -1,23 +1,23 @@
 # encoding: utf-8
 module RoviApi
-  class Movies < Struct.new(:sig)
+  class URL < Struct.new(:sig)
     require 'digest/md5'
 
     class << self
-      def info_url_by_id(id, sig)
-        new(sig).info_url_by_id(id_to_param(id))
-      end
-
-      def info_url_by_title(title, sig)
+      def info_by_title(title, sig)
         new(sig).info_url(title_to_param(title))
       end
 
-      def similar_url_by_title(title, sig)
-        new(sig).similar_url(title_to_param(title))
+      def info_by_id(id, sig)
+        new(sig).info_url(id_to_param(id))
       end
 
-      def image_url_by_title(title, sig)
-        new(sig).image_url(title_to_param(title))
+      def similar_by_id(title, sig)
+        new(sig).similar_url(id_to_param(title))
+      end
+
+      def image_by_id(title, sig)
+        new(sig).image_url(id_to_param(title))
       end
 
       def generate_sig

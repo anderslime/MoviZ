@@ -1,5 +1,14 @@
 <div id="moviz" class="page">
 <h1>MoviZ</h1>
+<% unless @movie.nil? %>
+  <h2><%= @movie.title %></h2>
+  <%= image_tag(@movie.image_url) %>
+  <h2>Related movies</h2>
+  <% @movie.related.each do |movie| %>
+    <h3><%= movie.title %></h3>
+  <% end %>
+<% end %>
+<div id="chart"></div>
 <h2>Some text</h2>
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ac sodales ipsum. Fusce molestie cursus elementum. Vestibulum mollis convallis velit, at mollis lorem gravida sagittis. Ut suscipit ultricies dolor, sed dapibus libero congue sed. Suspendisse quis nisi diam, id luctus lectus. Donec egestas, purus mollis hendrerit hendrerit, diam sem facilisis risus, at vestibulum lectus tortor eu lacus. Duis sollicitudin, risus congue gravida venenatis, libero dui tincidunt leo, ac tempor mauris odio eget justo. Fusce ultricies imperdiet sodales. Nunc faucibus commodo libero. Etiam nulla erat, ornare sit amet fermentum quis, consequat eget dui.
 </p>
@@ -72,3 +81,6 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ac sodales i
 Donec ante dolor, scelerisque eu interdum vel, dapibus a erat. Curabitur convallis tristique leo vitae congue. Etiam metus urna, tempor a semper nec, convallis ut turpis. Pellentesque est nunc, facilisis eget tristique id, varius convallis quam. Integer at felis risus, nec bibendum nulla. Vivamus ultricies consequat velit, feugiat pulvinar neque mattis ac. Vivamus accumsan hendrerit eros, eget posuere justo mattis condimentum. Pellentesque non feugiat risus. Aenean et nisl quis ipsum vehicula rhoncus. Vivamus vel velit sapien, ut auctor massa. Quisque mollis nunc nec metus sodales sit amet vestibulum augue volutpat. Integer vel nisi diam, id aliquet massa. Quisque gravida dictum pretium. Duis et mauris orci. Donec scelerisque feugiat pretium. Morbi quis tellus in tortor tempus consequat.
 </p>
 </div>
+
+<% content_for :document_ready do %>
+<% end %>
