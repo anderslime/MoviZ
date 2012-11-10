@@ -1,6 +1,6 @@
-$(document).ready(function(){
+initializeGraph = function(movie) {
   var width = 960,
-    height = 500;
+      height = 500;
 
   var color = d3.scale.category20();
 
@@ -13,7 +13,7 @@ $(document).ready(function(){
       .attr("width", width)
       .attr("height", height);
 
-  d3.json("http://moviz2012.herokuapp.com/dashboard/1.json", function(json) {
+  d3.json("http://moviz.dev/dashboard/"+movie+".json", function(json) {
     force.nodes(json.nodes)
          .links(json.links)
          .start();
@@ -34,8 +34,11 @@ $(document).ready(function(){
         .style("fill", function(d) { return color(d.group); })
         .call(force.drag);
 
+    window.nodes = node;
+    window.links = link;
+
     node.append("title")
-        .text(function(d) { return d.name; });
+        .text(function(d) { return d.title; });
 
     force.on("tick", function() {
       link.attr("x1", function(d, i) { return d.source.x; })
@@ -47,4 +50,4 @@ $(document).ready(function(){
           .attr("cy", function(d, i) { return d.y; });
     });
   });
-});
+}

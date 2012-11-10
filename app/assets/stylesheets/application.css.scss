@@ -9,6 +9,7 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
 */
+@import 'bootstrap';
 
 $top-gap: 40px;
 
@@ -31,6 +32,10 @@ $top-gap: 40px;
   }
 }
 
+.container-fluid {
+  padding: 0;
+}
+
 circle.node {
   cursor: pointer;
   stroke: #000;
@@ -42,5 +47,3 @@ line.link {
   stroke: #9ecae1;
   stroke-width: 1.5px;
 }
-
-@import 'bootstrap'

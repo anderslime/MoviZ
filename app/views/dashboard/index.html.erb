@@ -1,3 +1,7 @@
+<% content_for :graph do %>
+  <div id="chart"></div>
+<% end %>
+
 <div id="moviz" class="page">
 <h1>MoviZ</h1>
 <% unless @movie.nil? %>
@@ -8,7 +12,6 @@
     <h3><%= movie.title %></h3>
   <% end %>
 <% end %>
-<div id="chart"></div>
 <h2>Some text</h2>
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ac sodales ipsum. Fusce molestie cursus elementum. Vestibulum mollis convallis velit, at mollis lorem gravida sagittis. Ut suscipit ultricies dolor, sed dapibus libero congue sed. Suspendisse quis nisi diam, id luctus lectus. Donec egestas, purus mollis hendrerit hendrerit, diam sem facilisis risus, at vestibulum lectus tortor eu lacus. Duis sollicitudin, risus congue gravida venenatis, libero dui tincidunt leo, ac tempor mauris odio eget justo. Fusce ultricies imperdiet sodales. Nunc faucibus commodo libero. Etiam nulla erat, ornare sit amet fermentum quis, consequat eget dui.
 </p>

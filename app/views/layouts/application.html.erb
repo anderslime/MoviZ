@@ -38,8 +38,9 @@
       </div>
     </div>
 
-    <div class="container-fluid container">
-      <div class="content">
+    <div class="container-fluid">
+      <%= yield :graph %>
+      <div class="content container">
         <div class="row-fluid">
           <div class="span12">
             <%= yield %>
