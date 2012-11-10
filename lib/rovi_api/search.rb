@@ -1,11 +1,11 @@
 module RoviApi
   class Search
     class << self
-      def find_id_by_title(title, sig)
-        url = RoviApi::URL.info_by_title(title, sig)
-        parsed_response = JsonApiParser.parse_from_url(url)
-        if parsed_response['code'] == 200
-          parsed_response['movie']['ids']['movieId'].gsub(' ','+')
+      def find_id_by_title(sig, title)
+        url = RoviApi::URL.info_url(sig, {:movie => title})
+        info_hash = JsonApiParser.parse_from_url(url)
+        if info_hash['code'] == 200
+          info_hash['movie']['ids']['movieId'].gsub(' ','+')
         else
           nil
         end
