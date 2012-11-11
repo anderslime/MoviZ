@@ -84,6 +84,10 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ac sodales i
 Donec ante dolor, scelerisque eu interdum vel, dapibus a erat. Curabitur convallis tristique leo vitae congue. Etiam metus urna, tempor a semper nec, convallis ut turpis. Pellentesque est nunc, facilisis eget tristique id, varius convallis quam. Integer at felis risus, nec bibendum nulla. Vivamus ultricies consequat velit, feugiat pulvinar neque mattis ac. Vivamus accumsan hendrerit eros, eget posuere justo mattis condimentum. Pellentesque non feugiat risus. Aenean et nisl quis ipsum vehicula rhoncus. Vivamus vel velit sapien, ut auctor massa. Quisque mollis nunc nec metus sodales sit amet vestibulum augue volutpat. Integer vel nisi diam, id aliquet massa. Quisque gravida dictum pretium. Duis et mauris orci. Donec scelerisque feugiat pretium. Morbi quis tellus in tortor tempus consequat.
 </p>
 </div>
-
-<% content_for :document_ready do %>
+<% if params[:title] %>
+  <% content_for :document_ready do %>
+    TmdbMovieService.create_network_by_title('<%= CGI::escape(params[:title]) %>');
+    setTimeout(function(){initializeGraph(graph.nodes, graph.edges)},10000);
+  <% end %>
 <% end %>
+
