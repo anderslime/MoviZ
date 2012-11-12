@@ -1,6 +1,6 @@
 class RoviMovieService
   create_network_by_title: (title) ->
-    $.getJSON "http://moviz.dev/movies/search/#{title}", (data) =>
+    $.getJSON "/movies/search/#{title}", (data) =>
       movie_node = @create_movie_by_json(data.movie)
       graph.add_node(movie_node)
       similar_nodes = (@create_movie_by_json(movie) for movie in movie_node.similar)
@@ -16,7 +16,7 @@ class RoviMovieService
           @create_network_by_id(movie.id, 1)
 
   create_network_by_id: (id, create_index) ->
-    $.getJSON "http://moviz.dev/movies/#{escape(id)}", (data) =>
+    $.getJSON "/movies/#{escape(id)}", (data) =>
       movie_node = @create_movie_by_json(data.movie)
       graph.add_node(movie_node)
       similar_nodes = (@create_movie_by_json(movie) for movie in movie_node.similar)
