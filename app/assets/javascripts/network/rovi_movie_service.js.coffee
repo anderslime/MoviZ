@@ -1,7 +1,6 @@
 class RoviMovieService
   create_network_by_title: (title) ->
     $.getJSON "http://moviz.dev/movies/search/#{title}", (data) =>
-      console.log(data)
       movie_node = @create_movie_by_json(data.movie)
       graph.add_node(movie_node)
       similar_nodes = (@create_movie_by_json(movie) for movie in movie_node.similar)
@@ -22,7 +21,7 @@ class RoviMovieService
       graph.add_node(movie_node)
       similar_nodes = (@create_movie_by_json(movie) for movie in movie_node.similar)
       for movie, i in similar_nodes
-        if i < 6 || graph.node_exists(movie)
+        if (i < 6 and create_index > 0) || graph.node_exists(movie)
           graph.add_node(movie) if i < 6
           graph.add_edges([new Edge(graph.get_node_index(movie_node), graph.get_node_index(movie), 1)])
           @create_network_by_id(movie.id, create_index - 1) if create_index > 0
