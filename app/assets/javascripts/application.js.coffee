@@ -6,5 +6,5 @@
 //= require d3ex
 //= require_tree ./network
 
-window.Graph ||= {}
+window.graph ||= {}
 window.Network ||= {}

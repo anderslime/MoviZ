@@ -1,4 +1,4 @@
-initializeGraph = function(nodes, edges) {
+window.initializeGraph = function(nodes, edges) {
   var width = 960,
       height = 600;
 
@@ -9,23 +9,13 @@ initializeGraph = function(nodes, edges) {
       .linkDistance(30)
       .size([width, height]);
 
-  window.force = force;
-
   var svg = d3.select("#chart").append("svg")
       .attr("width", width)
       .attr("height", height);
 
-  window.svg = svg
-
-  console.log("Svg added!")
-  console.log(nodes)
-  console.log(edges)
-
   force.nodes(nodes)
        .links(edges)
        .start();
-
-  console.log("Nodes forced")
 
   var link = svg.selectAll("line.link")
       .data(edges)
@@ -33,8 +23,6 @@ initializeGraph = function(nodes, edges) {
       .append("line")
       .attr("class", "link")
       .style("stroke-width", function(d) { return Math.sqrt(d.value); });
-
-  console.log("Links something")
 
   var node = svg.selectAll("circle.node")
       .data(nodes)
@@ -44,8 +32,6 @@ initializeGraph = function(nodes, edges) {
       .attr("r", 5)
       .style("fill", function(d) { return color(d.group); })
       .call(force.drag);
-
-  console.log("something about nodes")
 
   node.append("title")
       .text(function(d) { return d.title; });
