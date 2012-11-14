@@ -1,4 +1,4 @@
 class Network
   constructor: (@graph) ->
 
-window.network = new Network
+window.netwiz.Network = Network

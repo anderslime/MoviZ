@@ -1,4 +1,4 @@
 class Edge
   constructor: (@source, @target, @value) ->
 
-window.Edge = Edge
+window.netwiz.Edge = Edge

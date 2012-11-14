@@ -20,6 +20,9 @@ class Graph
         return i
 
   node_exists: (node) ->
-    return @node_index[node.id] != undefined
+    return @node_with_id_exists(node.id)
 
-window.graph = new Graph
+  node_with_id_exists: (node_id) ->
+    return @node_index[node_id] != undefined
+
+window.netwiz.Graph = Graph
