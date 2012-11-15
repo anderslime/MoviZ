@@ -19,6 +19,11 @@ class Graph
       if n.id == node.id
         return i
 
+  all_nodes_has_images: () ->
+    for node in @nodes
+      return false if node.image is null
+    return true
+
   node_exists: (node) ->
     return @node_with_id_exists(node.id)
 

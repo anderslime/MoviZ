@@ -27,7 +27,7 @@ class RoviMovieService
     )
     if create_level > 0
       for movie, i in similar_movies
-        if graph.node_with_id_exists(movie.id) || (create_level >= 1 and i < 5 )
+        if graph.node_with_id_exists(movie.id) || (create_level >= 1 and i < 4 )
           graph.add_node(movie)
           graph.add_edges([new netwiz.Edge(graph.get_node_index(movie_node), graph.get_node_index(movie), 1)])
           @create_network_by_id(movie.id, create_level)

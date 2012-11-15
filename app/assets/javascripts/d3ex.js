@@ -1,13 +1,15 @@
 window.initializeGraph = function(nodes, edges) {
-  var width = 960,
+  var width = 900,
     height = 500
 
   var force = d3.layout.force()
-      .charge(-200)
-      .linkDistance(150)
+      .charge(-150)
+      .linkDistance(60)
       .size([width, height]);
 
   var svg = d3.select("#chart").append("svg")
+      .call(d3.behavior.zoom().on("zoom", window.redraw))
+      .attr("pointer-events", "all")
       .attr("width", width)
       .attr("height", height);
 
