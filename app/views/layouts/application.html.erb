@@ -17,7 +17,6 @@
     <%= csrf_meta_tag %>
   </head>
   <body data-spy="scroll" data-target=".navbar">
-
     <div id="navbar" class="navbar navbar-inverse navbar-fixed-top">
       <div class="navbar-inner">
         <div class="container">
@@ -38,8 +37,16 @@
       </div>
     </div>
 
-    <div class="container-fluid container">
-      <%= yield :graph %>
+    <div class="container-fluid">
+      <div class="theater-container">
+        <svg class="graph"></svg>
+        <div class="top-curtain"></div>
+        <div class="right-curtain"></div>
+        <div class="left-curtain"></div>
+        <div class="theater-dashboard">
+          <a id="show-button" class="btn btn-danger btn-large">Processing graph...</a>
+        </div>
+      </div>
       <div class="content container">
         <div class="row-fluid">
           <div class="span12">

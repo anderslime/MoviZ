@@ -1,5 +1,5 @@
 window.initializeGraph = function(nodes, edges) {
-  var width = 900,
+  var width = 960,
     height = 500
 
   var force = d3.layout.force()
@@ -7,7 +7,7 @@ window.initializeGraph = function(nodes, edges) {
       .linkDistance(60)
       .size([width, height]);
 
-  var svg = d3.select("#chart").append("svg")
+  var svg = d3.select(".theater-container svg")
       .call(d3.behavior.zoom().on("zoom", window.redraw))
       .attr("pointer-events", "all")
       .attr("width", width)

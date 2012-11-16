@@ -3,7 +3,8 @@ class Visualizer
 
   show_network: () ->
     initializeGraph(@graph().nodes, @graph().edges)
-    $('#show-button').remove()
+    $('.theater-dashboard').remove()
+    @remove_curtains()
 
   initialize_node_count: (node_count) ->
     setTimeout(=>
@@ -15,6 +16,10 @@ class Visualizer
       else
         @initialize_node_count(@graph().nodes.length)
     ,800)
+
+  remove_curtains: () ->
+    $('.left-curtain').animate({left: '-=450'},4000)
+    $('.right-curtain').animate({right: '-=450'},4000)
 
   graph: () ->
     @network.graph
