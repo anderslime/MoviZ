@@ -3,3 +3,4 @@
 //= require_self
 //= require bootstrap
 //= require netwiz
+//= require visualizer

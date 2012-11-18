@@ -34,15 +34,37 @@ line.link {
   stroke-width: 1.5px;
 }
 
+.theater-container {
+  width: 1050px;
+  height: 560px;
+  margin-left: auto;
+  margin-right: auto;
+  position:relative;
+  overflow: hidden;
+}
+
 .theater-dashboard {
-  width: 200px;
+  width: 350px;
   height: 50px;
   position: absolute;
-  top: 250px;
-  padding: 20px;
-  left: 400px;
-  background-color: white;
+  top: 225px;
+  left: 280px;
   z-index: 11;
+  padding: 20px;
+
+  input {
+    height: 30px;
+    width: 450px;
+    font-size: 20px;
+    padding: 12px;
+  }
+
+  button {
+    margin-left: 70px;
+    height: 50px;
+    font-size: 25px;
+    width: 350px;
+  }
 
   #show-button {
     position: absolute;
@@ -72,17 +94,11 @@ svg.graph {
 
 .container-fluid {
   padding: 0;
-  padding-top: 40px;
   background: lighten(black, 5%);
 }
 
-.theater-container {
-  width: 1050px;
-  height: 560px;
-  margin-left: auto;
-  margin-right: auto;
-  position:relative;
-  overflow: hidden;
+#moviz {
+  padding-top: 40px;
 }
 
 .left-curtain, .right-curtain {
@@ -100,7 +116,7 @@ svg.graph {
 }
 
 .right-curtain {
-  right: 45px;
+  right: 40px;
   background-image: url('right-curtain.png');
   background-repeat: no-repeat;
   background-position: 0 -40px;

@@ -1,0 +1,20 @@
+<div class="theater-container">
+  <svg class="graph"></svg>
+  <div class="top-curtain"></div>
+  <div class="right-curtain"></div>
+  <div class="left-curtain"></div>
+  <div id="network-state-button" class="theater-dashboard" style="display: none">
+    <button id="network-button" type="button" class="btn btn-info btn-large" data-complete-text="Show me the network!">Loading network...</button>
+  </div>
+  <%= form_tag '/', :method => 'get', :class => "theater-dashboard", :id => 'movie-form' do %>
+      <%= text_field_tag :title, nil, :id => 'title-input', :placeholder => "A movie you like..." %>
+  <% end %>
+</div>
+
+<% content_for :document_ready do %>
+  var graph   = new netwiz.Graph();
+  var network = new netwiz.Network(graph);
+  window.service = new RoviMovieService(network);
+  window.visualizer = new Visualizer(network)
+  visualizer.bind_movie_form()
+<% end %>
