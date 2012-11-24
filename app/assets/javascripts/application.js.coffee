@@ -4,3 +4,5 @@
 //= require bootstrap
 //= require netwiz
 //= require visualizer
+
+window.visualizer ||= {}

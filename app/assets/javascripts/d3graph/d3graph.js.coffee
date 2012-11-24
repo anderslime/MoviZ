@@ -41,6 +41,8 @@ class D3Graph
       .on("click", (d) ->
         console.log("Movie clicked: #{d.id}")
         service.create_network_by_id(d.id, 1)
+      ).on('dblclick', (d) ->
+        alert(d.title)
       ).call(@force.drag)
 
     nodeEnter.append("svg:image")

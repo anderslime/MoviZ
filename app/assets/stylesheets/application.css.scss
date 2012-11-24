@@ -111,8 +111,10 @@ line.link {
 
   .seats {
     width: 1000px;
-    height: 100px;
-    background: url('cinema/seats.png') no-repeat bottom center;
+    height: 133px;
+    position: absolute;
+    bottom: 40px;
+    background: url('cinema/seats_invis.png') no-repeat bottom center;
   }
 
   svg {
