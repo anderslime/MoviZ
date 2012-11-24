@@ -1,5 +1,5 @@
-<div class="theater-container">
-  <svg class="graph"></svg>
+<div id="theater-container">
+  <div class="graph"></div>
   <div class="top-curtain"></div>
   <div class="right-curtain"></div>
   <div class="left-curtain"></div>
@@ -12,9 +12,9 @@
 </div>
 
 <% content_for :document_ready do %>
-  var graph   = new netwiz.Graph();
-  var network = new netwiz.Network(graph);
-  window.service = new RoviMovieService(network);
-  window.visualizer = new Visualizer(network)
-  visualizer.bind_movie_form()
+  window.canvas = new d3graph.D3Graph();
+  canvas.setup();
+  window.service = new RoviMovieService(canvas);
+  window.visualizer = new Visualizer();
+  visualizer.bind_movie_form();
 <% end %>

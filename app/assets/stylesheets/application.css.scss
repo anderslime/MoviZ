@@ -29,8 +29,7 @@ $top-gap: 40px;
 }
 
 line.link {
-  fill: none;
-  stroke: #9ecae1;
+  stroke: #ccc;
   stroke-width: 1.5px;
 }
 
@@ -44,7 +43,7 @@ line.link {
 }
 
 
-.theater-container {
+#theater-container {
   width: 1000px;
   height: 700px;
   margin-left: auto;
@@ -116,7 +115,7 @@ line.link {
     background: url('cinema/seats.png') no-repeat bottom center;
   }
 
-  svg.graph {
+  svg {
     margin-left: 20px;
     margin-top: 20px;
     background-color: white;
