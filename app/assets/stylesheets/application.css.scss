@@ -34,64 +34,6 @@ line.link {
   stroke-width: 1.5px;
 }
 
-.theater-container {
-  width: 1050px;
-  height: 560px;
-  margin-left: auto;
-  margin-right: auto;
-  position:relative;
-  overflow: hidden;
-}
-
-.theater-dashboard {
-  width: 350px;
-  height: 50px;
-  position: absolute;
-  top: 225px;
-  left: 280px;
-  z-index: 11;
-  padding: 20px;
-
-  input {
-    height: 30px;
-    width: 450px;
-    font-size: 20px;
-    padding: 12px;
-  }
-
-  button {
-    margin-left: 70px;
-    height: 50px;
-    font-size: 25px;
-    width: 350px;
-  }
-
-  #show-button {
-    position: absolute;
-    z-index: 10;
-  }
-}
-
-
-
-svg.graph {
-  margin-left: 45px;
-  margin-top: 20px;
-  background-color: white;
-  height: 400px;
-  width: 960px;
-  z-index: 1;
-  position: absolute;
-}
-
-.top-curtain {
-  width: 1050px;
-  z-index: 5;
-  height: 200px;
-  position: absolute;
-  background: url('top-curtain-3.png') no-repeat top left;
-}
-
 .container-fluid {
   padding: 0;
   background: lighten(black, 5%);
@@ -101,24 +43,86 @@ svg.graph {
   padding-top: 40px;
 }
 
-.left-curtain, .right-curtain {
-  height: 900px;
-  width: 500px;
-  position: absolute;
-  z-index: 2;
-}
 
-.left-curtain {
-  left: 40px;
-  background-image: url('left-curtain.png');
-  background-repeat: no-repeat;
-  background-position: 0 -40px;
-}
+.theater-container {
+  width: 1000px;
+  height: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  position:relative;
+  overflow: hidden;
 
-.right-curtain {
-  right: 40px;
-  background-image: url('right-curtain.png');
-  background-repeat: no-repeat;
-  background-position: 0 -40px;
-}
+  .theater-dashboard {
+    width: 350px;
+    height: 50px;
+    position: absolute;
+    top: 225px;
+    left: 280px;
+    z-index: 11;
+    padding: 20px;
 
+    input {
+      height: 30px;
+      width: 450px;
+      font-size: 20px;
+      padding: 12px;
+    }
+
+    button {
+      margin-left: 70px;
+      height: 50px;
+      font-size: 25px;
+      width: 350px;
+    }
+
+    #show-button {
+      position: absolute;
+      z-index: 10;
+    }
+  }
+
+  .top-curtain {
+    width: 1000px;
+    z-index: 5;
+    height: 90px;
+    position: absolute;
+    background: url('cinema/top-curtain.png') no-repeat top left;
+  }
+
+  .left-curtain, .right-curtain {
+    height: 900px;
+    width: 500px;
+    position: absolute;
+    z-index: 2;
+  }
+
+  .left-curtain {
+    left: 10px;
+    background-image: url('cinema/left-curtain.png');
+    background-repeat: no-repeat;
+    background-position: 0 right;
+  }
+
+  .right-curtain {
+    right: 10px;
+    background-image: url('cinema/right-curtain.png');
+    background-repeat: no-repeat;
+    background-position: 0 right;
+  }
+
+  .seats {
+    width: 1000px;
+    height: 100px;
+    background: url('cinema/seats.png') no-repeat bottom center;
+  }
+
+  svg.graph {
+    margin-left: 20px;
+    margin-top: 20px;
+    background-color: white;
+    height: 400px;
+    width: 960px;
+    z-index: 1;
+    position: absolute;
+  }
+}
