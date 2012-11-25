@@ -92,6 +92,9 @@ GEM
       addressable
       deepopenstruct (>= 0.1.2)
       json
+    rubypython (0.6.3)
+      blankslate (>= 2.1.2.3)
+      ffi (>= 1.0.7)
     rupy (0.4.2)
       blankslate (>= 2.1.2.3)
       ffi (>= 0.6.3)
@@ -126,6 +129,7 @@ DEPENDENCIES
   rails (= 3.2.3)
   rest-client
   ruby-tmdb3
+  rubypython
   rupy
   sass-rails (~> 3.2.3)
   uglifier (>= 1.0.3)
