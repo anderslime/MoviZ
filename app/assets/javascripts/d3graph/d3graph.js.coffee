@@ -21,8 +21,11 @@ class D3Graph
       return node if node.id == node_input.id
     null
 
-  append_edges: (edges) ->
-    @links.push(edge) for edge in edges
+  add_edges: (edges) ->
+    @add_edge(edge) for edge in edges
+    
+  add_nodes: (nodes) ->
+    @add_node(node) for node in nodes
 
   restart: () ->
     link = @canvas.selectAll("line.link")
@@ -37,7 +40,7 @@ class D3Graph
       .attr("class", "node")
       .on("click", (d) ->
         console.log("Movie clicked: #{d.id}")
-        service.create_network_by_id(d.id, 1)
+        service.add_connected_movies(d.id)
       ).on('dblclick', (d) ->
         alert(d.title)
       ).call(@force.drag)

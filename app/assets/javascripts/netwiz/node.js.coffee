@@ -1,4 +1,4 @@
 class Node
-  constructor: (@id, @title, @similar, @image, @rating) ->
+  constructor: (@id, @title, @image) ->
 
 window.netwiz.Node = Node

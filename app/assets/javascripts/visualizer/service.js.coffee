@@ -4,10 +4,8 @@ class Service
   bind_movie_form: () ->
     $('form#movie-form').submit(=>
       title = escape($('#title-input').val())
-      @api_service.create_network_by_title(title, 1)
+      @api_service.initialize_network_from(title)
       @theater.toggle_theater()
-      # console.log("hey")
-      console.log("Hey")
       return false
     )
 

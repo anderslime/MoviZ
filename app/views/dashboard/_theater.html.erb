@@ -16,7 +16,7 @@
   window.canvas = new d3graph.D3Graph();
   canvas.setup();
 
-  window.service = new RoviMovieService(canvas);
+  window.service = new AjaxService(canvas);
   var theater = new visualizer.Theater();
   window.visual_service = new visualizer.Service(service, theater);
   visual_service.bind_movie_form();
