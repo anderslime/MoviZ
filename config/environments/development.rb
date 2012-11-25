@@ -34,4 +34,9 @@ MoviZ::Application.configure do
 
   # Expands the lines which load the assets
   config.assets.debug = true
+  
+  MovieDatabase.current_database = :rovi
+  
+  ENV['api_key']    = "647agh56urckjcwsqjugsx4f"
+  ENV['secret_key'] = "9kbBCmCFaF"
 end

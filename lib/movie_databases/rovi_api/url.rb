@@ -1,7 +1,7 @@
 # encoding: utf-8
-module RoviApi
-  module URL
-    class Movie < Struct.new(:auth)
+module MovieDatabases
+  module RoviAPI
+    class URL < Struct.new(:auth)
       class << self
         def find(auth, custom_args)
           new(auth).api_url('info', custom_args)

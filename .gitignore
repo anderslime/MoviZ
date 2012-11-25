@@ -17,3 +17,4 @@
 # Ignore config files
 .rspec
 .rvmrc
+/config/database.yml
