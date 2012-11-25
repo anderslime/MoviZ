@@ -11,6 +11,7 @@ gem 'pg'
 gem 'ruby-tmdb3'
 gem 'hirb'
 gem 'rest-client'
+gem 'rupy'
 
 # Gems used only for assets and not required
 # in production environments by default.
