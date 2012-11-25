@@ -1,0 +1,3 @@
+class AnalController < ApplicationController
+
+end

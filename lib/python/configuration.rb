@@ -1,5 +1,5 @@
 module Python
-  class RubyPythonConfiguration
+  class Configuration
     require "rubypython"
 
     class << self
