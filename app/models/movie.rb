@@ -8,6 +8,11 @@ class Movie < ActiveRecord::Base
   has_many :related_movies, :through => :movie_relations
 
   def related_movies
-    MovieRelation.joins(:movies).where('movie_id = ? OR related_movie_id = ?', self.id, self.id)
+    Movie.
+      joins(:movie_relations).
+      where(
+        'movie_relations.movie_id = ? OR movie_relations.related_movie_id = ?',
+        self.movie_id, self.movie_id
+      )
   end
 end
