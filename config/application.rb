@@ -16,7 +16,9 @@ module MoviZ
     # -- all .rb files in that directory are automatically loaded.
 
     # Custom directories with classes and modules you want to be autoloadable.
-    config.autoload_paths += %W(#{::Rails.root.to_s}/lib)
+    config.autoload_paths += %W(
+        #{::Rails.root.to_s}/lib #{::Rails.root.to_s}/app/services
+    )
 
     # Only load the plugins named here, in the order given (default is alphabetical).
     # :all can be used as a placeholder for all plugins not explicitly named.
