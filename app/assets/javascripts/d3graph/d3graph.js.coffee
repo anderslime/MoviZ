@@ -24,9 +24,6 @@ class D3Graph
   append_edges: (edges) ->
     @links.push(edge) for edge in edges
 
-  set_node_image: (node, image) ->
-
-
   restart: () ->
     link = @canvas.selectAll("line.link")
       .data(@links, (d) -> "#{d.source.id}-#{d.target.id}")
@@ -53,18 +50,11 @@ class D3Graph
       .attr("width", (d) -> d.image.width)
       .attr("height", (d) -> d.image.height)
 
-    # nodeEnter.append("svg:text")
-    #     .attr("class", "nodetext")
-    #     .attr("dx", 12)
-    #     .attr("dy", ".35em")
-    #     .text( (d) -> d.title )
-
     node.exit().remove()
 
     @force.start()
 
   setup: () ->
-    # $('.right-curtain, .left-curtain, input').remove()
     @force = d3.layout.force()
       .charge(-150)
       .linkDistance(60)
