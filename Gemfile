@@ -11,7 +11,7 @@ gem 'pg'
 gem 'ruby-tmdb3'
 gem 'hirb'
 gem 'rest-client'
-gem 'rupy'
+# gem 'rupy'
 gem 'rubypython'
 
 # Gems used only for assets and not required

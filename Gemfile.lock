@@ -95,9 +95,6 @@ GEM
     rubypython (0.6.3)
       blankslate (>= 2.1.2.3)
       ffi (>= 1.0.7)
-    rupy (0.4.2)
-      blankslate (>= 2.1.2.3)
-      ffi (>= 0.6.3)
     sass (3.2.2)
     sass-rails (3.2.5)
       railties (~> 3.2.0)
@@ -130,6 +127,5 @@ DEPENDENCIES
   rest-client
   ruby-tmdb3
   rubypython
-  rupy
   sass-rails (~> 3.2.3)
   uglifier (>= 1.0.3)
