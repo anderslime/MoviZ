@@ -4,15 +4,19 @@ class Movie < ActiveRecord::Base
 
   validates_presence_of :movie_id
 
+  # DONT USE THESE! #
   has_many :movie_relations
   has_many :related_movies, :through => :movie_relations
+  has_many :inverse_movie_relations, :class_name => "MovieRelation", :foreign_key => "related_movie_id"
+  has_many :inverse_related_movies, :through => :inverse_movie_relations, :source => :movie
+  # # # # # # # # # #
 
-  def related_movies
-    Movie.
-      joins(:movie_relations).
-      where(
-        'movie_relations.movie_id = ? OR movie_relations.related_movie_id = ?',
-        self.movie_id, self.movie_id
-      )
+  def related
+    related_movies + inverse_related_movies
   end
+
+  def add_related_movie(related_movie)
+    self.related_movies << related_movie
+  end
+
 end

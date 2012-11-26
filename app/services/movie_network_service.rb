@@ -1,15 +1,28 @@
-class MovieNetworkService
+class MovieNetworkService < Struct.new(:movie, :network)
   class << self
-    def find_related_movies(movie_id)
-      related_nodes = NetworkMovieRelations.find_relations(params[:id])
-      edges = current_network.add_edges_to_related(movie_id, related_nodes.map(&:id))
-      nodes, edges
+    def by_id(movie_id, network)
+      new(Movie.find(movie_id), network)
     end
 
-    def find_source_movie(title)
-      movie = Movie.find_by_title(title)
-      current_network.add_node(movie)
-      MovieNetworkService.find_related_movies(movie.id, movie.related.map(&:id))
+    def by_title(movie_title, network)
+      new(Movie.find_by_title(movie_title), network)
     end
+
+  end
+
+  def related_movies_to_json_network
+    { :nodes => find_related_movies, :edges => find_edges }
+  end
+
+  private
+
+  def find_related_movies
+    @movies ||= MovieRelationService.find_best_related_movies(params[:id])
+  end
+
+  def find_edges
+    @edges ||= current_network.add_edges_to_related(
+      movie_id, find_related_movies.map(&:id)
+    )
   end
 end
