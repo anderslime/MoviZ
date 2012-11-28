@@ -8,7 +8,7 @@ class MovieDatabase
     end
 
     def current_database
-      @@current_database
+      @@current_database ||= MovieDatabases::Rovi
     end
   end
   

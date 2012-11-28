@@ -1,7 +1,7 @@
 //= require_self
-//= require_tree ./d3graph
+//= require d3graph
 //= require_tree ./netwiz
-//= require_tree ./ajax
+//= require ajax_service
 
 window.netwiz ||= {}
 window.d3graph ||= {}

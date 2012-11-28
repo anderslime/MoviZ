@@ -1,12 +1,11 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
   
-  protected
-
-  def current_network=(network)
-    session[:network_id] = (@network = network.create).id
-    @network
+  before_filter do |controller|
+    initalize_network unless controller.request.format.js?
   end
+  
+  protected
 
   def current_network
     if id = session[:network_id]
@@ -16,4 +15,11 @@ class ApplicationController < ActionController::Base
     end
     @network
   end
+  
+  private
+  
+  def initalize_network
+    session[:network_id] = (@network = Network.create).id
+  end
+  
 end

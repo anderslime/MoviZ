@@ -11,7 +11,6 @@ class D3Graph
       @nodes.push(node)
 
   add_edge: (source, target) ->
-    console.log(source + " " + target)
     source = @find_node(source)
     target = @find_node(target)
     return if source is null or target is null
@@ -41,10 +40,10 @@ class D3Graph
     nodeEnter = node.enter().append("svg:g")
       .attr("class", "node")
       .on("click", (d) ->
-        console.log("Movie clicked: #{d.id}")
         service.add_connected_movies(d.id)
       ).on('dblclick', (d) ->
-        alert(d.title)
+        $("#movie-#{d.id}").modal()
+        
       ).call(@force.drag)
 
     nodeEnter.append("svg:image")

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121128113957) do
+ActiveRecord::Schema.define(:version => 20121128155234) do
 
   create_table "edges", :force => true do |t|
     t.string   "source_id"
@@ -31,7 +31,6 @@ ActiveRecord::Schema.define(:version => 20121128113957) do
   add_index "movie_relations", ["movie_id", "related_movie_id"], :name => "index_movie_relations_on_movie_id_and_related_movie_id"
 
   create_table "movies", :id => false, :force => true do |t|
-    t.string   "movie_id"
     t.string   "title"
     t.string   "image_url"
     t.integer  "rating"
@@ -39,9 +38,9 @@ ActiveRecord::Schema.define(:version => 20121128113957) do
     t.datetime "updated_at", :null => false
     t.boolean  "completed"
     t.text     "related"
+    t.string   "api_id"
+    t.integer  "movie_id"
   end
-
-  add_index "movies", ["movie_id"], :name => "index_movies_on_movie_id", :unique => true
 
   create_table "networks", :force => true do |t|
     t.datetime "created_at", :null => false

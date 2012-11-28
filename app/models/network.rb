@@ -15,17 +15,17 @@ class Network < ActiveRecord::Base
   end
 
   def edge_exists?(source_id, target_id)
-    return Edge.exists?(['network_id = ? AND ((source_id = ? AND target_id = ?) OR (target_id = ? AND source_id = ?))',
+    edges.exists?(['network_id = ? AND ((source_id = ? AND target_id = ?) OR (target_id = ? AND source_id = ?))',
       self.id, source_id, target_id, source_id, target_id]
     )
   end
 
   def update_network(movies)
-    new_node_set = movies.map(&:movie_id) + node_ids
+    new_node_set = (movies.map(&:movie_id) + node_ids).uniq
     edge_output = [].tap do |new_edges|
       movies.each do |source|
-        source.related_movies_as_json.select {|m| new_node_set.include?(m['ids']['movieId'])}.each do |target|
-          edge = add_edge(source.id, target['ids']['movieId'])
+        source.related.select {|m| new_node_set.include?(m[:movie_id])}.each do |target|
+          edge = add_edge(source.id, target[:movie_id])
           new_edges << edge.to_json
         end
       end

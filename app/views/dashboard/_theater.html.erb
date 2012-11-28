@@ -4,20 +4,11 @@
   <div class="right-curtain"></div>
   <div class="left-curtain"></div>
   <div class="seats"></div>
-  <div id="network-state-button" class="theater-dashboard" style="display: none">
-    <button id="network-button" type="button" class="btn btn-info btn-large" data-complete-text="Show me the network!">Loading network...</button>
+  <div id="info-container">
+    <%= render "modal" %>
+  </div>
   </div>
   <%= form_tag '/', :method => 'get', :class => "theater-dashboard", :id => 'movie-form' do %>
       <%= text_field_tag :title, nil, :id => 'title-input', :placeholder => "A movie you like..." %>
   <% end %>
 </div>
-
-<% content_for :document_ready do %>
-  window.canvas = new d3graph.D3Graph();
-  canvas.setup();
-
-  window.service = new AjaxService(canvas);
-  var theater = new visualizer.Theater();
-  window.visual_service = new visualizer.Service(service, theater);
-  visual_service.bind_movie_form();
-<% end %>

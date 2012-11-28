@@ -7,7 +7,8 @@ class MovieRelationService < Struct.new(:movie, :network)
     end
   end
 
-  def find_best_related_movies
+  # Returns the MIN_NUMBER_OF_RELATIONS best rated related movies, plus all movies with relations to other existing movies
+  def find_best_related_movies    
     [].tap do |related_movies|
       sorted_movie_relation_ids.each_with_index do |movie_id, index|
         next if index >= MIN_NUMBER_OF_RELATIONS && !network_node_ids.include?(movie_id)
@@ -18,11 +19,14 @@ class MovieRelationService < Struct.new(:movie, :network)
 
   private
 
+  # Returns all ids for nodes in the current network
   def network_node_ids
-    @network_nodes ||= network.node_ids
+    @network_nodes = network.node_ids
   end
 
+  # Returns all ids for related movies sorted by ratung
   def sorted_movie_relation_ids
-    @relations ||= movie.related.sort {|a,b| b["rating"] <=> a["rating"]}.map{|m| m["ids"]["movieId"]}
+    @relations ||= movie.related.sort {|a,b| b[:rating] <=> a[:rating]}.map{|m| m[:movie_id]}
   end
+  
 end

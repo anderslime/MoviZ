@@ -11,6 +11,7 @@ class AjaxService
       @add_connected_nodes(data.nodes, data.edges)
     
   add_connected_nodes: (nodes, edges) ->
+    console.log(nodes)
     for node in nodes
       movie_node = @create_movie_by_json(node)
       @canvas.add_node(movie_node)
@@ -19,7 +20,7 @@ class AjaxService
     for edge in edges
       @canvas.add_edge(edge.source, edge.target)
     
-    @canvas.restart()
+    @canvas.repaint()
 
   create_movie_by_json: (json) ->
     return new netwiz.Node(
