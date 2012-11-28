@@ -14,11 +14,11 @@ module MovieDatabases
         end
 
         def api_key
-          ENV['api_key']
+          ENV['rovi_api_key']
         end
 
         def secret_key
-          ENV['secret_key']
+          ENV['rovi_secret_key']
         end
       end
 

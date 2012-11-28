@@ -37,6 +37,7 @@ MoviZ::Application.configure do
   
   MovieDatabase.current_database = :rovi
   
-  ENV['api_key']    = "647agh56urckjcwsqjugsx4f"
-  ENV['secret_key'] = "9kbBCmCFaF"
+  ENV['rovi_api_key']    = "647agh56urckjcwsqjugsx4f"
+  ENV['rovi_secret_key'] = "9kbBCmCFaF"
+  ENV['tmdb_api_key']    = "29ad3f3fae3aca8f03a1431b7b88a99f"
 end
