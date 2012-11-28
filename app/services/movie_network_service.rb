@@ -17,12 +17,10 @@ class MovieNetworkService < Struct.new(:movie, :network)
   private
 
   def find_related_movies
-    @movies ||= MovieRelationService.find_best_related_movies(params[:id])
+    @movies ||= MovieRelationService.find_best_related_movies(movie, network)
   end
 
   def find_edges
-    @edges ||= current_network.add_edges_to_related(
-      movie_id, find_related_movies.map(&:id)
-    )
+    @edges ||= network.update_network(find_related_movies.push(movie))
   end
 end

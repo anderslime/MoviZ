@@ -9,20 +9,20 @@ class MovieRelationService < Struct.new(:movie, :network)
 
   def find_best_related_movies
     [].tap do |related_movies|
-      sorted_movie_relations.each_with_index do |movie, index|
-        next if index >= MIN_NUMBER_OF_RELATIONS || !network_nodes.include?(movie)
-        related_movies << movie.update_unless_completed
+      sorted_movie_relation_ids.each_with_index do |movie_id, index|
+        next if index >= MIN_NUMBER_OF_RELATIONS && !network_node_ids.include?(movie_id)
+        related_movies << Movie.find(movie_id)
       end
     end
   end
 
   private
 
-  def network_nodes
-    @network_nodes ||= network.nodes
+  def network_node_ids
+    @network_nodes ||= network.nodes.map(&:id)
   end
 
-  def sorted_movie_relations
-    @relations ||= movie.related.sort {|a,b| b[:rating] <=> a[:rating]}
+  def sorted_movie_relation_ids
+    @relations ||= movie.related_movies_as_json.sort {|a,b| b['rating'] <=> a['rating']}.map{|m| m['ids']['movieId']}
   end
 end
