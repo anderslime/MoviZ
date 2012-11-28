@@ -1,8 +1,10 @@
 class Movie < ActiveRecord::Base
-  attr_accessible :image_url, :rating, :movie_id,  :title, :related_string
+  attr_accessible :image_url, :rating, :movie_id,  :title, :related
   set_primary_key :movie_id
 
   validates_presence_of :movie_id
+  
+  serialize :related, Array
 
   # DONT USE THESE! #
   # has_many :movie_relations
@@ -48,14 +50,18 @@ class Movie < ActiveRecord::Base
         :title => data['title'],
         :image_url => (data['images'].present? ? data['images'].last['url'] : nil),
         :rating => data['rating'],
-        :related_string => data['related']['similarTo'].to_json
+        :related => data['related']['similarTo']
       }
     end
   end
+  
+  def related_string # CHANGE RELATED STRING TO RELATED EVERYWHERE!
+    related
+  end
 
-  def related_movies_as_json
-    return [] if related_string.nil?
-    JSON.parse(related_string)
+  def related_movies_as_json ## MAY NEVER BE USED, WE USE SERIALZE INSTEAD
+    return [] if related.nil?
+    related
   end
 
   def update_unless_completed
@@ -67,7 +73,7 @@ class Movie < ActiveRecord::Base
   end
 
   def complete?
-    self.image_url.present? && self.related_string.present?
+    self.image_url.present? && self.related.present?
   end
 
 end

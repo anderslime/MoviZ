@@ -23,6 +23,6 @@ class MovieRelationService < Struct.new(:movie, :network)
   end
 
   def sorted_movie_relation_ids
-    @relations ||= movie.related_movies_as_json.sort {|a,b| b['rating'] <=> a['rating']}.map{|m| m['ids']['movieId']}
+    @relations ||= movie.related.sort {|a,b| b["rating"] <=> a["rating"]}.map{|m| m["ids"]["movieId"]}
   end
 end

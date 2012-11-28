@@ -4,8 +4,8 @@ MoviZ::Application.routes.draw do
 
   root :to => 'dashboard#index'
   resources :dashboard
-  match 'movies/search/:title' => 'movies#find_by_title'
-  match 'movies/:id' => 'movies#find_by_id'
+  match 'movies/search/:title' => 'movies#search'
+  match 'movies/:id' => 'movies#show'
 
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'
