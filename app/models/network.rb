@@ -30,4 +30,5 @@ class Network < ActiveRecord::Base
       end
     end.reject {|e| e == "null"}
   end
+  
 end
