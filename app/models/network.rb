@@ -32,5 +32,4 @@ class Network < ActiveRecord::Base
     end.reject {|e| e == "null"}
     edge_output
   end
-  
 end
