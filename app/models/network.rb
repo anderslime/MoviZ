@@ -22,12 +22,14 @@ class Network < ActiveRecord::Base
 
   def update_network(movies)
     new_node_set = movies.map(&:movie_id) + node_ids
-    [].tap do |new_edges|
+    edge_output = [].tap do |new_edges|
       movies.each do |source|
         source.related_movies_as_json.select {|m| new_node_set.include?(m['ids']['movieId'])}.each do |target|
-          new_edges << add_edge(source.id, target['ids']['movieId']).to_json
+          edge = add_edge(source.id, target['ids']['movieId'])
+          new_edges << edge.to_json
         end
       end
     end.reject {|e| e == "null"}
+    edge_output
   end
 end

@@ -15,6 +15,7 @@ class AjaxService
       movie_node = @create_movie_by_json(node)
       @canvas.add_node(movie_node)
     
+    console.log(edges)
     for edge in edges
       @canvas.add_edge(edge.source, edge.target)
     

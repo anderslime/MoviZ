@@ -7,10 +7,11 @@ class D3Graph
   links: []
 
   add_node: (node) ->
-    if @find_node(node) is null
+    if @find_node(node.id) is null
       @nodes.push(node)
 
   add_edge: (source, target) ->
+    console.log(source + " " + target)
     source = @find_node(source)
     target = @find_node(target)
     return if source is null or target is null
