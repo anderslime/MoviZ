@@ -19,7 +19,7 @@ class MovieRelationService < Struct.new(:movie, :network)
   private
 
   def network_node_ids
-    @network_nodes ||= network.nodes.map(&:id)
+    @network_nodes ||= network.node_ids
   end
 
   def sorted_movie_relation_ids
