@@ -7,8 +7,8 @@ class ApplicationController < ActionController::Base
     if id = session[:network_id]
       @network ||= Network.find(id)
     else
-      session[:network_id] = (@network = Network.create.id)
-      @network
+      session[:network_id] = (@network = Network.create).id
     end
+    @network
   end
 end

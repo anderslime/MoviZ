@@ -1,6 +1,6 @@
 class Movie < ActiveRecord::Base
   attr_accessible :image_url, :rating, :movie_id,  :title, :related
-  set_primary_key :movie_id
+  self.primary_key = :movie_id
 
   validates_presence_of :movie_id
   

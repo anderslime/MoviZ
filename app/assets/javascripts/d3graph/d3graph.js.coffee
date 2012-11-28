@@ -16,9 +16,10 @@ class D3Graph
     return if source is null or target is null
     @links.push({source: source, target: target})
 
-  find_node: (node_input) ->
+  # TODO: Must be changed to binary serach algorithm
+  find_node: (node_input_id) ->
     for node in @nodes
-      return node if node.id == node_input.id
+      return node if node.id == node_input_id
     null
 
   add_edges: (edges) ->
@@ -47,11 +48,11 @@ class D3Graph
 
     nodeEnter.append("svg:image")
       .attr("class", "circle")
-      .attr("xlink:href", (d) -> d.image.url)
-      .attr("x", (d) -> -d.image.width/2)
-      .attr("y",  (d) -> -d.image.height/2)
-      .attr("width", (d) -> d.image.width)
-      .attr("height", (d) -> d.image.height)
+      .attr("xlink:href", (d) -> d.image)
+      .attr("x", (d) -> -20/2)
+      .attr("y",  (d) -> -20/2)
+      .attr("width", (d) -> 20)
+      .attr("height", (d) -> 20)
 
     node.exit().remove()
 
