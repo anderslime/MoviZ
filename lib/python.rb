@@ -1,6 +1,5 @@
 module Python
   require "python/configuration"
-  #Python::Configuration.initialize
 
   class << self
     def import (package)
