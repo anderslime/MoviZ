@@ -35,6 +35,8 @@ class Movie < ActiveRecord::Base
     end
 
     def create_by_api_data(data)
+      Rails.logger.debug("DBG: #{data}")
+      Rails.logger.debug("#{Movie.inspect}")
       if data.present?
         create(data)
       else
@@ -43,7 +45,6 @@ class Movie < ActiveRecord::Base
     end
 
   end
-  
 
   def update_unless_completed
     if !complete?
