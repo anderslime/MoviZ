@@ -3,26 +3,32 @@ class NerdFacts
   modal_box: null
 
   constructor: ->
-    console.log("Hey")
     @create_info_box()
-    @button.click( => @modal_box.info_box.modal())
+    @button.click(=>
+      @fetch_nerd_facts()
+      @modal_box.info_box.modal()
+    )
 
-  push_nerd_facts: (network_id) ->
-    $.getJSON "/networks/#{network_id}/nerd_facts", (data) ->
-      console.log(data)
+  fetch_nerd_facts: ->
+    $.getJSON "/network/nerd_facts", (data) =>
+      @modal_box.body.html('')
+      for kind, scores of data
+        @modal_box.body.append(@fact_section(kind, scores))
+
+  fact_section: (kind, scores) ->
+    $('<div>').attr(class: kind).append(
+      $('<h2>').text(kind)
+      $('<ul>').append(@score_list_elements(scores))
+    )
+
+  score_list_elements: (scores) ->
+    @score_element(score) for score in scores
+
+  score_element: (score) ->
+    $('<li>').text("#{score.movie.title} - #{score.value}")
 
   create_info_box: ->
     @modal_box = new ModalBox("nerd-facts", "MoviZ Nerd Facts")
-    @modal_box.body.append(
-      $('<h2>').text('Centrality')
-      $('<p>').attr(
-        class: 'centrality'
-      ).text("Hey")
-      $('<h2>').text('Clustering coefficients')
-      $('<p>').attr(
-        class: 'clustering'
-      )
-    )
     @modal_box.append_to_canvas()
 
 window.NerdFacts = NerdFacts

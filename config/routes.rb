@@ -5,7 +5,12 @@ MoviZ::Application.routes.draw do
   root :to => 'dashboard#index'
   resources :dashboard
   match 'movies/search/:title' => 'movies#search'
-  match 'movies/:id' => 'movies#show'
+  resources :movies, :only => [:show]
+  resource :network, :only => [] do
+    member do
+      get 'nerd_facts'
+    end
+  end
 
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'

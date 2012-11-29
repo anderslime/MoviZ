@@ -8,4 +8,3 @@ jQuery ->
   window.canvas = new Canvas(d3graph);
 
   window.service = new AjaxService(canvas);
-  nerd_facts = new NerdFacts();

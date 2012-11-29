@@ -79,6 +79,15 @@ line.link {
       z-index: 10;
     }
   }
+
+  #nerd-facts-button {
+    position: absolute;
+    z-index: 5;
+    left: 450px;
+    top: 500px;
+    display: none;
+  }
+
   .top-curtain {
     width: 1000px;
     z-index: 5;
