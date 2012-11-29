@@ -5,13 +5,13 @@ class NerdFacts
   constructor: ->
     @create_info_box()
     @button.click(=>
+      @modal_box.body.html('')
       @fetch_nerd_facts()
       @modal_box.info_box.modal()
     )
 
   fetch_nerd_facts: ->
     $.getJSON "/network/nerd_facts", (data) =>
-      @modal_box.body.html('')
       for kind, scores of data
         @modal_box.body.append(@fact_section(kind, scores))
 

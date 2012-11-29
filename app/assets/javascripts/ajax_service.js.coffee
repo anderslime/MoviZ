@@ -11,12 +11,10 @@ class AjaxService
       @add_connected_nodes(data.nodes, data.edges)
 
   add_connected_nodes: (nodes, edges) ->
-    console.log(nodes)
     for node in nodes
       movie_node = @create_movie_by_json(node)
       @canvas.add_node(movie_node)
 
-    console.log(edges)
     for edge in edges
       @canvas.add_edge(edge.source, edge.target)
 
