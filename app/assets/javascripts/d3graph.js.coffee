@@ -24,7 +24,7 @@ class D3Graph
 
   add_edges: (edges) ->
     @add_edge(edge) for edge in edges
-    
+
   add_nodes: (nodes) ->
     @add_node(node) for node in nodes
 
@@ -43,7 +43,7 @@ class D3Graph
         service.add_connected_movies(d.id)
       ).on('dblclick', (d) ->
         $("#movie-#{d.id}").modal()
-        
+
       ).call(@force.drag)
 
     nodeEnter.append("svg:image")

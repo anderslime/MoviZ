@@ -5,9 +5,6 @@
 jQuery ->
   window.d3graph = new d3graph.D3Graph();
   d3graph.setup();
-  
   window.canvas = new Canvas(d3graph);
 
   window.service = new AjaxService(canvas);
-  
-  
