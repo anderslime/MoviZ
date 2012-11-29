@@ -1,5 +1,5 @@
 class NetworkxGraph
-  #@@nx = Python.import("ruby_networkx")
+  @@nx = Python.import("ruby_networkx")
 
   class << self
     def by_network(network)
