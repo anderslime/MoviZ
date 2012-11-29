@@ -1,6 +1,9 @@
 import networkx as nx
 
-def test():
-  g = nx.Graph()
-  g.add_edge(1,2)
-  print g.nodes()
+def edges_to_graph(edges):
+  G = nx.Graph()
+  G.add_edges_from(edges)
+  return G
+
+def cluster_coefficient(graph):
+  return nx.clustering(graph)
