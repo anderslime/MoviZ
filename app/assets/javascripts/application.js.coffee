@@ -3,7 +3,8 @@
 //= require_self
 //= require bootstrap
 //= require node
-//= require modal_canvas
+//= require modal_box
+//= require nerd_facts
 //= require d3.v2
 //= require d3graph
 //= require canvas

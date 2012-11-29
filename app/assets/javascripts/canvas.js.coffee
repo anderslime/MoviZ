@@ -13,7 +13,7 @@ class Canvas
     @d3.restart()
 
   create_movie_info_box: (node) ->
-    modal = new ModalCanvas(node.id, node.title)
+    modal = new ModalBox("movie-#{node.id}", node.title)
     modal.body.append(
       $("<p>").text(node.title)
       $("<img>").attr(

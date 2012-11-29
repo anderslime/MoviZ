@@ -1,15 +1,15 @@
-class ModalCanvas
+class ModalBox
   info_box: null
   header: null
   body: null
 
-  constructor: (id, title = "Modal title") ->
+  constructor: (input_id, title = "Modal title") ->
     @info_box = $("#info-container").
       find(".empty").
       clone().
       toggleClass('empty').
       attr(
-        id: "movie-#{id}"
+        id: input_id
       )
 
     @set_title(title)
@@ -21,4 +21,7 @@ class ModalCanvas
       $("<h3>").text(title)
     )
 
-window.ModalCanvas = ModalCanvas
+  append_to_canvas: ->
+    $("#info-container").append(@info_box)
+
+window.ModalBox = ModalBox

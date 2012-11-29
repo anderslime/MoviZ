@@ -3,11 +3,11 @@ class AjaxService
   constructor: (@canvas) ->
 
   initialize_network_from: (title) ->
-    $.getJSON "/movies/search/#{title}", (data) =>
+    $.getJSON "/movies/search/#{title}.json", (data) =>
       @add_connected_nodes(data.nodes, data.edges)
 
   add_connected_movies: (id) ->
-    $.getJSON "/movies/#{escape(id)}", (data) =>
+    $.getJSON "/movies/#{escape(id)}.json", (data) =>
       @add_connected_nodes(data.nodes, data.edges)
 
   add_connected_nodes: (nodes, edges) ->
