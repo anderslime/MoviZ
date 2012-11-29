@@ -1,6 +1,4 @@
 module Python
-  require "python/configuration"
-
   class << self
     def import (package)
       python_package = RubyPython.import(package)
