@@ -5,7 +5,7 @@ module Python
     class << self
       def initialize
         # start the Python VM
-        RubyPython.start_from_virtualenv("./venv")
+        RubyPython.start(:python_exe => "python2.6")
 
         # Add this folder as search path
         sys = RubyPython.import('sys')
