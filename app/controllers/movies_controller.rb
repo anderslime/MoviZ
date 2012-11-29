@@ -6,6 +6,7 @@ class MoviesController < ApplicationController
   end
 
   def search
+    initalize_network
     service = MovieNetworkService.by_title(params[:title], current_network)
     render :json => service.related_movies_to_json_network
   end

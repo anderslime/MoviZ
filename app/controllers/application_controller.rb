@@ -1,9 +1,9 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
 
-  before_filter do |controller|
-    initalize_network unless controller.request.format.js?
-  end
+  # before_filter do |controller|
+  #   initalize_network unless controller.request.format.js?
+  # end
 
   protected
 

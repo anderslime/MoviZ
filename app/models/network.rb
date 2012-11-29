@@ -30,6 +30,11 @@ class Network < ActiveRecord::Base
         end
       end
     end.reject {|e| e == "null"}
-    edge_output
+  end
+
+  def networkx_edges
+    edges.inject([]) do |nx_edges, edge|
+      nx_edges << [edge.source_id, edge.target_id]
+    end
   end
 end
