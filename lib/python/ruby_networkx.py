@@ -15,7 +15,7 @@ def closeness_centrality(graph):
   return to_sorted_array(nx.closeness_centrality(graph))
 
 def betweenness_centrality(graph):
-  return to_sorted_array(nx.betweeness_centrality(graph))
+  return to_sorted_array(nx.betweenness_centrality(graph))
 
 def eigenvector_centrality(graph):
   return to_sorted_array(nx.eigenvector_centrality(graph))
