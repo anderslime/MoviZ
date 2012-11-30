@@ -5,6 +5,7 @@ MoviZ::Application.routes.draw do
   root :to => 'dashboard#index'
   resources :dashboard
   match 'movies/search/:title' => 'movies#search'
+  match 'movies/autocomplete/:query' => 'movies#autocomplete'
   resources :movies, :only => [:show]
   resource :network, :only => [] do
     member do

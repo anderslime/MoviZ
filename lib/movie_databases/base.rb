@@ -10,10 +10,13 @@ module MovieDatabases
         raise "The method #{__method__} must be implemented in all subclasses of #{MovieDatabase.name}. Missing in #{self.class.name}."
       end
 
-      def parse_from_url(url)
-        JsonApi.parse_from_url(url)
+      def parse_movie_by_url(url)
+        RoviApiParser.movie_by_url(url)
       end
 
+      def parse_autocomplete_by_url(url)
+        RoviApiParser.autocomplete_by_url(url)
+      end
     end
   end
 end

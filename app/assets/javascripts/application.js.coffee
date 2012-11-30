@@ -4,6 +4,7 @@
 //= require bootstrap
 //= require node
 //= require modal_box
+//= require movie_autocomplete
 //= require nerd_facts
 //= require d3.v2
 //= require d3graph

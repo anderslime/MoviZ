@@ -10,4 +10,8 @@ class MoviesController < ApplicationController
     service = MovieNetworkService.by_title(params[:title], current_network)
     render :json => service.related_movies_to_json_network
   end
+
+  def autocomplete
+    render :json => MovieDatabases::Rovi.find_title_by_query(params[:query])
+  end
 end

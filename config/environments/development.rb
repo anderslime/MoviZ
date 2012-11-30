@@ -40,4 +40,6 @@ MoviZ::Application.configure do
   ENV['rovi_api_key']    = "647agh56urckjcwsqjugsx4f"
   ENV['rovi_secret_key'] = "9kbBCmCFaF"
   ENV['tmdb_api_key']    = "29ad3f3fae3aca8f03a1431b7b88a99f"
+  ENV['rovi_autocomplete_api_key'] = "vgdyrsq5sjd4njkvp8mkw65x"
+  ENV['rovi_autocomplete_secret_key'] = "EERPVzRzzd"
 end

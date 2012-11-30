@@ -1,5 +1,5 @@
 module MovieDatabases
-  module RoviAPI
+  module RoviApi
     class Auth < Struct.new(:sig)
       require 'digest/md5'
 
@@ -23,7 +23,7 @@ module MovieDatabases
       end
 
       def to_args
-        { :apikey => MovieDatabases::RoviAPI::Auth.api_key, :sig => sig }
+        { :apikey => self.class.api_key, :sig => sig }
       end
     end
   end

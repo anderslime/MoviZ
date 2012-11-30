@@ -8,5 +8,5 @@ jQuery ->
   nerd_facts = new NerdFacts()
   visual_service = new visualizer.Service(service, theater, nerd_facts);
   visual_service.bind_movie_form();
-
+  autocomplete = new MovieAutocomplete('title-input');
 
