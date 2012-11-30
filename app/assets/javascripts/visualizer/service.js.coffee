@@ -9,5 +9,6 @@ class Service
       @nerd_facts.button.show()
       return false
     )
+    $('form#movie-form input').focus()
 
 window.visualizer.Service = Service
