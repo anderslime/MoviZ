@@ -37,14 +37,24 @@ class D3Graph
 
     node = @canvas.selectAll("g.node").data(@nodes, (d) -> d.id)
 
+    clicks = 0
+
     nodeEnter = node.enter().append("svg:g")
       .attr("class", "node")
       .on("click", (d) ->
-        service.add_connected_movies(d.id)
-      ).on('dblclick', (d) ->
-        $("#movie-#{d.id}").modal()
+        clicks++
+        if (clicks == 1)
+          setTimeout(->
+            if clicks == 1
+              $("#movie-#{d.id}").modal()
+            else
+              service.add_connected_movies(d.id)
+            clicks = 0
+          , 300)
+      )
+      .call(@force.drag)
 
-      ).call(@force.drag)
+
 
     nodeEnter.append("svg:image")
       .attr("class", "circle")
