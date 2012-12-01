@@ -17,7 +17,6 @@ module MovieDatabases
         url = MovieDatabases::RoviApi::MovieURL.by_title(auth, title, args)
         rubify(Rovi.parse_movie_by_url(url))
       end
-
       def find_title_by_query(query, args = STD_AUTOCOMPLETE_ARGS)
         auth = MovieDatabases::RoviApi::AutocompleteAuth.generate
         url = MovieDatabases::RoviApi::MovieAutocompleteURL.by_query(auth, query, args)
@@ -35,13 +34,20 @@ module MovieDatabases
           }
         end
 
-        image = data["images"].last["url"] if data["images"].present?
+        image_data = if data["images"].present?
+          {
+          :small => image_hash_data(data["images"].first),
+          :large => image_hash_data(data["images"].last)
+          }
+        else
+          nil
+        end
 
         {
           movie_id:   data["ids"]["movieId"][/\d+/].to_i,
-          api_id:    data["ids"]["movieId"], 
+          api_id:    data["ids"]["movieId"],
           title:      data["title"],
-          image_url:  image,
+          image_data:  image_data,
           related:    related_movies,
           rating:     data["rating"]
         }
@@ -49,6 +55,14 @@ module MovieDatabases
 
       def rovify(id)
         "V% 9d" % id
+      end
+
+      def image_hash_data(image_data)
+        {
+          :url => image_data["url"],
+          :width => image_data["width"],
+          :height => image_data["height"]
+        }
       end
     end
   end

@@ -1,17 +1,11 @@
 class Movie < ActiveRecord::Base
-  attr_accessible :image_url, :rating, :movie_id,  :title, :related, :api_id
+  attr_accessible :image_data, :rating, :movie_id,  :title, :related, :api_id
   self.primary_key = :movie_id
 
   validates_presence_of :movie_id
-  
-  serialize :related, Array
 
-  # DONT USE THESE! #
-  # has_many :movie_relations
-  # has_many :related_movies, :through => :movie_relations
-  # has_many :inverse_movie_relations, :class_name => "MovieRelation", :foreign_key => "related_movie_id"
-  # has_many :inverse_related_movies, :through => :inverse_movie_relations, :source => :movie
-  # # # # # # # # # #
+  serialize :related, Array
+  serialize :image_data, Hash
 
   class << self
     def find(id)
@@ -53,7 +47,7 @@ class Movie < ActiveRecord::Base
   end
 
   def complete?
-    self.image_url.present? && self.related.present?
+    self.image_data.present? && self.related.present?
   end
 
 end

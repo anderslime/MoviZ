@@ -48,11 +48,11 @@ class D3Graph
 
     nodeEnter.append("svg:image")
       .attr("class", "circle")
-      .attr("xlink:href", (d) -> d.image)
-      .attr("x", (d) -> -20/2)
-      .attr("y",  (d) -> -20/2)
-      .attr("width", (d) -> 20)
-      .attr("height", (d) -> 20)
+      .attr("xlink:href", (d) -> d.small_image.url)
+      .attr("x", (d) -> -d.small_image.width/2)
+      .attr("y",  (d) -> -d.small_image.height/2)
+      .attr("width", (d) -> d.small_image.width)
+      .attr("height", (d) -> d.small_image.height)
 
     node.exit().remove()
 

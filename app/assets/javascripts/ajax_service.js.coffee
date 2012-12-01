@@ -24,6 +24,7 @@ class AjaxService
     return new Node(
       json.movie_id,
       json.title,
-      json.image_url
+      (if json.image_data is null then null else json.image_data.small),
+      (if json.image_data is null then null else json.image_data.large)
     )
 window.AjaxService = AjaxService

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121129131201) do
+ActiveRecord::Schema.define(:version => 20121130170629) do
 
   create_table "edges", :force => true do |t|
     t.integer  "network_id"
@@ -32,7 +32,6 @@ ActiveRecord::Schema.define(:version => 20121129131201) do
 
   create_table "movies", :id => false, :force => true do |t|
     t.string   "title"
-    t.string   "image_url"
     t.integer  "rating"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
@@ -40,6 +39,7 @@ ActiveRecord::Schema.define(:version => 20121129131201) do
     t.text     "related"
     t.string   "api_id"
     t.integer  "movie_id"
+    t.text     "image_data"
   end
 
   create_table "networks", :force => true do |t|

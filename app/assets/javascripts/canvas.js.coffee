@@ -17,7 +17,7 @@ class Canvas
     modal.body.append(
       $("<p>").text(node.title)
       $("<img>").attr(
-        src: node.image,
+        src: (if node.large_image is null then null else node.large_image.url),
         class: "img-polaroid"
       )
     )
