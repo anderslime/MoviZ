@@ -60,8 +60,8 @@ class D3Graph
 
   setup: () ->
     @force = d3.layout.force()
-      .charge(-150)
-      .linkDistance(60)
+      .charge(-180)
+      .linkDistance(80)
       .size([@width, @height])
 
     @nodes = @force.nodes()

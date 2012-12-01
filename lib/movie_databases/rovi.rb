@@ -34,10 +34,10 @@ module MovieDatabases
           }
         end
 
-        image_data = if data["images"].present?
+        image_data = if data["images"].present? && !data["images"].empty?
           {
-          :small => image_hash_data(data["images"].first),
-          :large => image_hash_data(data["images"].last)
+            :small => image_hash_data(data["images"].first),
+            :large => image_hash_data(data["images"].last)
           }
         else
           nil
