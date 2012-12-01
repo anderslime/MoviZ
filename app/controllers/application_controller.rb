@@ -8,10 +8,10 @@ class ApplicationController < ActionController::Base
   protected
 
   def current_network
-    if id = session[:network_id]
-      @network ||= Network.find(id)
+    if id = cookies[:network_id]
+      @network = Network.find(id)
     else
-      session[:network_id] = (@network = Network.create).id
+      @network = initalize_network
     end
     @network
   end
@@ -19,7 +19,7 @@ class ApplicationController < ActionController::Base
   private
 
   def initalize_network
-    session[:network_id] = (@network = Network.create).id
+    cookies[:network_id] = (@network = Network.create).id
   end
 
 end
