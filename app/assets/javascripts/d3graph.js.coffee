@@ -28,6 +28,17 @@ class D3Graph
   add_nodes: (nodes) ->
     @add_node(node) for node in nodes
 
+  move_graph: (x, y) ->
+    @transform_nodes(x/10,y/10)
+    @set_tick_event(x,y)
+    @restart()
+
+  transform_nodes: (x,y) ->
+    for node in @nodes
+      node.x = node.x - x
+      node.y = node.y - y
+    @restart()
+
   restart: () ->
     link = @canvas.selectAll("line.link")
       .data(@links, (d) -> "#{d.source.id}-#{d.target.id}")
@@ -57,6 +68,7 @@ class D3Graph
     @force.start()
 
   setup: () ->
+    bias = 100
     @force = d3.layout.force()
       .charge(-150)
       .linkDistance(60)
@@ -71,15 +83,17 @@ class D3Graph
       .attr("width", @width)
       .attr("height", @height)
 
-    canvas = @canvas
-    @force.on("tick", ->
-      canvas.selectAll("g.node")
-        .attr("transform", (d) -> "translate(#{d.x},#{d.y})")
+    @set_tick_event()
 
-      canvas.selectAll("line.link")
-        .attr("x1", (d) -> d.source.x )
-        .attr("y1", (d) -> d.source.y )
-        .attr("x2", (d) -> d.target.x )
-        .attr("y2", (d) -> d.target.y ))
+  set_tick_event: (x_bias = 0, y_bias = 0) ->
+    @force.on("tick", =>
+      @canvas.selectAll("g.node")
+        .attr("transform", (d) -> "translate(#{d.x - x_bias},#{d.y - y_bias})")
+
+      @canvas.selectAll("line.link")
+        .attr("x1", (d) -> d.source.x - x_bias )
+        .attr("y1", (d) -> d.source.y - y_bias )
+        .attr("x2", (d) -> d.target.x - x_bias )
+        .attr("y2", (d) -> d.target.y - y_bias ))
 
 window.d3graph.D3Graph = D3Graph
