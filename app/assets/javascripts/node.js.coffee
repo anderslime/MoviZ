@@ -1,7 +1,5 @@
 class Node
   clicks: 0
-  modal_box: null
-  hover_box: null
 
   constructor: (@id, @title, @small_image, @large_image) ->
 
@@ -15,6 +13,13 @@ class Node
           @on_double_click()
         @clicks = 0
       , 300)
+
+  create_link: (text) ->
+    $("<a>").text(text)
+      .attr("href","javascript://")
+      .click(=>
+        @modal_box.modal()
+      )
 
   on_single_click: ->
     @modal_box.modal()

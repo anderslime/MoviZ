@@ -11,6 +11,8 @@ class MovieNetworkService
       @add_connected_nodes(data.nodes, data.edges)
 
   add_connected_nodes: (nodes, edges) ->
+    nerd_facts_service.reset_nerd_facts()
+
     for node in nodes
       movie_node = @create_movie_by_json(node)
       @canvas.add_node(movie_node)

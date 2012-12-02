@@ -11,6 +11,7 @@
 //= require movie_form
 //= require movie_autocomplete
 //= require nerd_facts
+//= require nerd_facts_service
 //= require network_visualize_service
 //= require theater
 //= require movie_network_service

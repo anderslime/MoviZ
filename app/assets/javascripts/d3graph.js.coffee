@@ -29,7 +29,9 @@ class D3Graph
     @add_node(node) for node in nodes
 
   move_graph: (x, y) ->
-    @transform_nodes(x/10,y/10)
+    @transform_nodes((x - @biax_x)/7,(y - @biax_y/7))
+    @biax_x = x
+    @biax_y = y
     @set_tick_event(x,y)
     @restart()
 
@@ -68,7 +70,8 @@ class D3Graph
     @force.start()
 
   setup: () ->
-    bias = 100
+    @biax_x = 0
+    @biax_y = 0
     @force = d3.layout.force()
       .charge(-150)
       .linkDistance(60)

@@ -13,11 +13,13 @@ jQuery ->
 
   # Initialize network visualization
   theater = new visualizer.Theater()
-  nerd_facts = new NerdFacts()
-  visual_service = new visualizer.NetworkVisualizeService(service, theater, nerd_facts)
+  nerd_facts = new NerdFacts('nerd_facts_box', d3graph)
+  network_visual_service = new visualizer.NetworkVisualizeService(service, theater, nerd_facts)
+  window.nerd_facts_service = new visualizer.NerdFactsService(nerd_facts, d3graph)
+  nerd_facts_service.setup_nerd_facts()
 
   # Initialize movie form
   autocomplete = new visualizer.MovieAutocomplete()
   movie_form = new visualizer.MovieForm('movie-form')
-  movie_form.bind_movie_form(visual_service)
+  movie_form.bind_movie_form(network_visual_service)
   movie_form.activate_autocomplete(autocomplete)
