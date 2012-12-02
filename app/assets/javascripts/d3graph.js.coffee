@@ -37,32 +37,20 @@ class D3Graph
 
     node = @canvas.selectAll("g.node").data(@nodes, (d) -> d.id)
 
-    clicks = 0
-
     nodeEnter = node.enter().append("svg:g")
       .attr("class", "node")
-      .on("click", (d) ->
-        clicks++
-        if (clicks == 1)
-          setTimeout(->
-            if clicks == 1
-              $("#movie-#{d.id}").modal()
-            else
-              service.add_connected_movies(d.id)
-            clicks = 0
-          , 300)
-      )
+      .on("click", (d) -> d.on_single_double_click())
+      .on("mouseover", (d) -> d.on_mouse_over())
+      .on("mouseout", (d) -> d.on_mouse_out())
       .call(@force.drag)
-
-
 
     nodeEnter.append("svg:image")
       .attr("class", "circle")
       .attr("xlink:href", (d) -> d.small_image.url)
-      .attr("x", (d) -> -d.small_image.width/2)
-      .attr("y",  (d) -> -d.small_image.height/2)
-      .attr("width", (d) -> d.small_image.width)
-      .attr("height", (d) -> d.small_image.height)
+      .attr("x", (d) -> -30/2)
+      .attr("y",  (d) -> -30/2)
+      .attr("width", (d) -> 30)
+      .attr("height", (d) -> 30)
 
     node.exit().remove()
 
@@ -70,8 +58,8 @@ class D3Graph
 
   setup: () ->
     @force = d3.layout.force()
-      .charge(-180)
-      .linkDistance(80)
+      .charge(-150)
+      .linkDistance(60)
       .size([@width, @height])
 
     @nodes = @force.nodes()

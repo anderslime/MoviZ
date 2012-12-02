@@ -1,4 +1,4 @@
-class AjaxService
+class MovieNetworkService
 
   constructor: (@canvas) ->
 
@@ -27,4 +27,4 @@ class AjaxService
       (if json.image_data is null then null else json.image_data.small),
       (if json.image_data is null then null else json.image_data.large)
     )
-window.AjaxService = AjaxService
+window.MovieNetworkService = MovieNetworkService

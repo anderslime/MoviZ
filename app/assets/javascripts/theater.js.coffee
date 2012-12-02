@@ -4,9 +4,9 @@ class Theater
   toggle_theater: () ->
     $('form#movie-form').toggle()
     if open
-      show_curtains
+      @show_curtains()
     else
-      remove_curtains
+      @remove_curtains()
     open = true
 
   remove_curtains: () ->
@@ -17,4 +17,4 @@ class Theater
     $('.left-curtain').animate({right: '-=450'},4000)
     $('.right-curtain').animate({left: '-=450'},4000)
 
-window.visualizer.VisualTheater = VisualTheater
+window.visualizer.Theater = Theater

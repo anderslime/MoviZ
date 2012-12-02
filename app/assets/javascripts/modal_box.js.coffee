@@ -15,6 +15,7 @@ class ModalBox
     @set_title(title)
     @header = @info_box.find('.modal-header')
     @body   = @info_box.find('.modal-body')
+    @append_to_canvas()
 
   set_title: (title) ->
     @info_box.find(".modal-header").append(
@@ -23,5 +24,8 @@ class ModalBox
 
   append_to_canvas: ->
     $("#info-container").append(@info_box)
+
+  modal: ->
+    @info_box.modal()
 
 window.ModalBox = ModalBox

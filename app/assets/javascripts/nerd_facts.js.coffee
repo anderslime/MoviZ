@@ -29,6 +29,5 @@ class NerdFacts
 
   create_info_box: ->
     @modal_box = new ModalBox("nerd-facts", "MoviZ Nerd Facts")
-    @modal_box.append_to_canvas()
 
 window.NerdFacts = NerdFacts
