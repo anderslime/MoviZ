@@ -9,8 +9,6 @@ class MovieForm
   bind_movie_form: (service) ->
     @form_object.submit(=>
       title = @input_object.val()
-      console.log(@input_object)
-      console.log(title)
       service.show_network(title)
       return false
     )
