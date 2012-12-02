@@ -2,9 +2,10 @@ class MovieNetworkService
 
   constructor: (@canvas) ->
 
-  initialize_network_from: (title) ->
+  initialize_network_from: (title, callback) ->
     $.getJSON "/movies/search/#{title}.json", (data) =>
       @add_connected_nodes(data.nodes, data.edges)
+      callback()
 
   add_connected_movies: (id) ->
     $.getJSON "/movies/#{escape(id)}.json", (data) =>

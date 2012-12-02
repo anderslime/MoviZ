@@ -6,8 +6,8 @@ class NerdFacts
     @shown    = false
 
   fetch_and_set_nerd_facts: ->
-    @reset_lists()
     $.getJSON "/network/nerd_facts", (data) =>
+      @reset_lists()
       for kind, scores of data
         @set_highscore_list(scores, kind)
 
@@ -50,8 +50,14 @@ class NerdFacts
       hide_callback()
     )
 
+  initialize: ->
+    @nerd_box.show()
+    @button.animate({left: '-110px'}, { duration: 'slow'})
+
   show: ->
     @shown = true
+    @right_pixels ||= @nerd_box.css("right")
+    @reset_lists()
     @show_load_animations()
     @fetch_and_set_nerd_facts()
     @set_hide_button()
@@ -64,16 +70,14 @@ class NerdFacts
     @shown = false
     @set_show_button()
     @nerd_box.animate(
-      { right: '-450'},
+      { right: @right_pixels},
       { duration: 'slow' }
     )
 
   set_show_button: ->
-    @button.text("Show nerd facts!")
-      .toggleClass("btn-large exit")
+    @button.html("Nerd Facts").toggleClass("btn-primary btn-danger").css("left","-110px")
 
   set_hide_button: ->
-    @button.text("x")
-      .toggleClass("btn-large exit")
+    @button.html("&times").toggleClass("btn-primary btn-danger").css("left", "-38px")
 
 window.NerdFacts = NerdFacts

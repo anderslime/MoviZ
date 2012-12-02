@@ -86,7 +86,8 @@ line.link {
     height: 375px;
     padding: 0;
     z-index: 2;
-    right: -450px;
+    display: none;
+    right: -435px;
     padding: 70px 35px 50px 10px;
     -moz-box-shadow: -2px 2px 2px #999;
     -webkit-box-shadow: -2px 2px 2px #999;
@@ -98,17 +99,15 @@ line.link {
     }
 
     #nerd_facts_show_hide {
-      z-index: 10;
       position: absolute;
       z-index: 1;
-      left: -170px;
-      width: 150px;
       top: 100px;
     }
 
     .fact-highscore-list {
       width: 190px;
       float: left;
+      background: darken(#EEE, 10%);
       margin-bottom: 10px;
     }
 

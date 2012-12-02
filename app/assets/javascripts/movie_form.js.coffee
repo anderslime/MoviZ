@@ -8,6 +8,7 @@ class MovieForm
 
   bind_movie_form: (service) ->
     @form_object.submit(=>
+      $("ul.typeahead").remove()
       title = @input_object.val()
       service.show_network(title)
       return false
