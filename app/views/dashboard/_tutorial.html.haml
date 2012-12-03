@@ -1,4 +1,4 @@
-= link_to "Start tutorial", "#", id: "start-tutorial"
+= link_to "Are you lost? Start tutorial!", "#", id: "start-tutorial", class: "btn"
 
 #tutorial-text
 	.text#step-1
@@ -43,9 +43,8 @@
 		%p.text-info 
 			%strong 
 				Let's start playing!
-				= link_to "End tutorial", "#", id: "end-tutorial"
+		%p= link_to "End tutorial", "#", id: "end-tutorial", class: "btn btn-success"
 	
 	
 .actions
-	= link_to "Next step", "#", id: "next-step"
-	= link_to "Previous step", "#", id: "prev-step"
+	= link_to "Skip step", "#", id: "next-step", class: "btn btn-danger"

@@ -1,30 +1,44 @@
 <div id="measurements">
   <div id="eigenvector_centrality" class="fact-highscore-list thumbnail leftmost">
-    <h5>Eigenvector centrality</h5>
+    <%= link_to "#eigenvector-centrality" do %>
+      <%= content_tag :h5, "Eigenvector centrality", class: "popover-link", data: {content: popover_content(:eigenvector_centrality)}, title: "Most common to the chosen movie" %>
+    <% end %>
     <%= pacman_loading_animation %>
     <ol class="highscore-list"></ol>
   </div>
 
   <div id="betweenness_centrality" class="fact-highscore-list thumbnail rightmost">
-    <h5>Betweenness centrality</h5>
+    <%= link_to "#betweenness-centrality", class: "popover-link" do %>
+      <%= content_tag :h5, "Betweenness centrality", class: "popover-link", data: {content: popover_content(:betweenness_centrality)}, title: "Must see movie" %>
+    <% end %>
+    
     <%= pacman_loading_animation %>
     <ol class="highscore-list"></ol>
   </div>
 
   <div id="closeness_centrality" class="fact-highscore-list thumbnail leftmost">
-    <h5>Closeness centrality</h5>
+    <%= link_to "#closeness-centrality" do %>
+      <%= content_tag :h5, "Closeness centrality", class: "popover-link", data: {content: popover_content(:closeness_centrality)}, title: "Common with all other movie" %>
+    <% end %>
+    
     <%= pacman_loading_animation %>
     <ol class="highscore-list"></ol>
   </div>
 
   <div id="degree_centrality" class="fact-highscore-list thumbnail rightmost">
-    <h5>Degree centrality</h5>
+    <%= link_to "#degree-centrality" do %>
+      <%= content_tag :h5, "Degree centrality", class: "popover-link", data: {content: popover_content(:degree_centrality)}, title: "Movie with most specific similarities" %>
+    <% end %>
+    
     <%= pacman_loading_animation %>
     <ol class="highscore-list"></ol>
   </div>
 
   <div id="clustering_coefficient" class="thumbnail fact-highscore-list leftmost">
-    <h5>Clustering coefficients</h5>
+    <%= link_to "#clustering-coefficient" do %>
+      <%= content_tag :h5, "Clustering coefficients", class: "popover-link", data: {content: popover_content(:clustering_coefficients)}, title: "The movies which are very similar" %>
+    <% end %>
+
     <%= pacman_loading_animation %>
     <ol class="highscore-list"></ol>
   </div>

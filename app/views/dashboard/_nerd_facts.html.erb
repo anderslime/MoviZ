@@ -14,5 +14,13 @@
     </div>
   </div>
 
-  <a id="nerd_facts_show_hide" class="btn btn-primary btn-large" style="left: 0px">Nerd Facts</a>
+  <%= link_to "#", id: "nerd_facts_show_hide"  do %>
+    <span class="open btn btn-primary btn-large">
+      <i class="icon-chevron-left icon-white"></i>
+      Nerd facts
+    </span>
+    <span class="closed btn btn-danger btn-large">
+      <i class="icon-chevron-right icon-white"></i>
+    </span>
+  <% end %>
 </div>

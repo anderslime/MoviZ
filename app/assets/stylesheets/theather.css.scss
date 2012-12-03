@@ -67,47 +67,6 @@ line.link {
     }
   }
 
-  #nerd_facts_box {
-    position: absolute;
-    width: 425px;
-    height: 375px;
-    padding: 0;
-//    z-index: 1;
-    display: none;
-    right: -435px;
-    padding: 70px 35px 50px 10px;
-    -moz-box-shadow: -2px 2px 2px #999;
-    -webkit-box-shadow: -2px 2px 2px #999;
-    box-shadow: -2px 2px 2px #999;
-    top: 0;
-
-    h3 {
-      margin: 0;
-    }
-
-    ul#nerd-tabs {
-      margin-bottom: 5px;
-    }
-
-    #clusters .empty {
-      display: none;
-    }
-
-    #nerd_facts_show_hide {
-      position: absolute;
-//      z-index: 1;
-      top: 100px;
-    }
-
-    .fact-highscore-list {
-      width: 190px;
-      float: left;
-      background: darken(#EEE, 10%);
-      margin-bottom: 10px;
-      margin-right: 10px;
-    }
-  }
-
   .hover-box {
     height: 120px;
     min-width: 280px;

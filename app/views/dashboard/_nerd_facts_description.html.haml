@@ -1,0 +1,36 @@
+%h1 Nerd facts
+
+%p
+	The reason MoviZ.dk provides you with Nerd Facts is so you will find the right movie. First of all it is you who decide how the network should be like and when with some different algorithms and network theory this will help you find out which movies that is just right for you. Each algorithm is described below in a simple language so you don't have to be a network theory master to master the knowledge. 
+
+%h2 Centralities
+%p
+	Centrality says something about how central and how much influences a movie have to the network. There are different ways to calculate this:
+
+%h2{id: "eigenvector-centrality"} Eigenvector centrality - common to the chosen movie
+%p
+	The higher Eigenvector centrality the more influence and the more in common with the chosen movie where the network starts from.
+
+%h2{id: "betweenness-centrality"} Betweenness centrality - must see movie
+%p
+	Betweenness centrality is high when it appears in many random shortest path. Shortest path means if you go from movie A to movie B then you go through some different movies, so if a chosen movie exist in many random shortest path then the Betweenness centrality is high. What this actually calculates is the must see movie in the network.
+
+%h2{id: "closeness-centrality"} Closeness centrality - common with all other movie
+%p
+	The higher Closeness centrality the lower sum of distances to all other movies. This means that if Closeness centrality is high for a movie then this movie is close to all other movies. This tell something about that is has a lot in common to all the other movies.
+
+%h2{id: "degree-centrality"} Degree centrality - movie with most specific similarities
+%p
+	Degree centrality calculates the the numbers of similarities, which is the connection to others movies, compared to how many connections there are in the whole network. When this is high for a movie, the movie has many specific similarities.
+
+%h2 Clusters and communities - the movies which are very similar
+%p
+	Clusters and communities in a network are like the different groupings. Especially in a movie network, movies tend to get in different groups. This is very clear when searching for Pulp Fiction then after some expanding of the network a group of gangstar movies, aka a gangstar community, is quickly established.
+
+%h2{id: "clustering-coefficient"} Clustering coefficient
+%p
+	The cluster coefficient calculate how much a movie tend to cluster. This tells something about that the movie has many close connections. 
+
+%h2 Communities
+%p
+	As you properly have discovered some movies tends to group together. The different groups aka communities tell something about which movies that really have a lot in common together.
