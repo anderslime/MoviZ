@@ -85,7 +85,7 @@ line.link {
     width: 425px;
     height: 375px;
     padding: 0;
-    z-index: 2;
+    z-index: 1;
     display: none;
     right: -435px;
     padding: 70px 35px 50px 10px;
@@ -96,6 +96,14 @@ line.link {
 
     h3 {
       margin: 0;
+    }
+
+    ul.nerd-tabs {
+      margin-bottom: 5px;
+    }
+
+    #clusters .empty {
+      display: none;
     }
 
     #nerd_facts_show_hide {
@@ -109,10 +117,7 @@ line.link {
       float: left;
       background: darken(#EEE, 10%);
       margin-bottom: 10px;
-    }
-
-    .fact-highscore-list.rightmost {
-      margin-left: 10px;
+      margin-right: 10px;
     }
   }
 
@@ -143,7 +148,7 @@ line.link {
   .top-curtain {
     width: 1000px;
     z-index: 3;
-    height: 90px;
+    height: 80px;
     position: absolute;
     background: url('cinema/top-curtain.png') no-repeat top left;
   }

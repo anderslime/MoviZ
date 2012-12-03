@@ -10,6 +10,8 @@
 //= require canvas
 //= require movie_form
 //= require movie_autocomplete
+//= require network_clusters
+//= require network_centrality
 //= require nerd_facts
 //= require nerd_facts_service
 //= require network_visualize_service

@@ -30,4 +30,12 @@ class NetworkxGraph
   def eigenvector_centrality
     @@nx.eigenvector_centrality(@nx_graph).to_enum
   end
+
+  def communities
+    rubify_communities(@@nx.communities(@nx_graph).to_enum)
+  end
+
+  def rubify_communities(communities)
+    communities.map {|community| community.to_enum.map(&:to_s).map(&:to_i) }
+  end
 end

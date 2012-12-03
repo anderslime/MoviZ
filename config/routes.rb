@@ -10,6 +10,7 @@ MoviZ::Application.routes.draw do
   resource :network, :only => [] do
     member do
       get 'nerd_facts'
+      get 'communities'
     end
   end
 

@@ -13,7 +13,14 @@ jQuery ->
 
   # Initialize nerd fact visualization
   nerd_facts = new NerdFacts('nerd_facts_box', d3graph)
-  window.nerd_facts_service = new visualizer.NerdFactsService(nerd_facts, d3graph)
+  window.clustering = new NetworkClusters(d3graph)
+  window.centrality = new NetworkCentrality(d3graph)
+  window.nerd_facts_service = new visualizer.NerdFactsService(
+    nerd_facts,
+    centrality,
+    clustering,
+    d3graph
+  )
   nerd_facts_service.setup_nerd_facts()
 
   # Initialize network visualization

@@ -1,33 +1,17 @@
 <div class="hero-unit" id="nerd_facts_box">
-  <h3>Nerd Facts</h3>
-  <div id="eigenvector_centrality" class="fact-highscore-list thumbnail leftmost">
-    <h5>Eigenvector centrality</h5>
-    <%= pacman_loading_animation %>
-    <ol class="highscore-list"></ol>
-  </div>
-
-  <div id="betweenness_centrality" class="fact-highscore-list thumbnail rightmost">
-    <h5>Betweenness centrality</h5>
-    <%= pacman_loading_animation %>
-    <ol class="highscore-list"></ol>
-  </div>
-
-  <div id="closeness_centrality" class="fact-highscore-list thumbnail leftmost">
-    <h5>Closeness centrality</h5>
-    <%= pacman_loading_animation %>
-    <ol class="highscore-list"></ol>
-  </div>
-
-  <div id="degree_centrality" class="fact-highscore-list thumbnail rightmost">
-    <h5>Degree centrality</h5>
-    <%= pacman_loading_animation %>
-    <ol class="highscore-list"></ol>
-  </div>
-
-  <div id="clustering_coefficient" class="thumbnail fact-highscore-list leftmost">
-    <h5>Clustering coefficients</h5>
-    <%= pacman_loading_animation %>
-    <ol class="highscore-list"></ol>
+  <div class="tabbable">
+    <ul class="nav nav-tabs nerd-tabs">
+      <li><a href="#tab1" data-toggle="tab">Centrality</a></li>
+      <li><a href="#tab2" data-toggle="tab">Clusters</a></li>
+    </ul>
+    <div class="tab-content">
+      <div class="tab-pane active" id="tab1">
+        <%= render 'centrality' %>
+      </div>
+      <div class="tab-pane" id="tab2">
+        <%= render 'clusters' %>
+      </div>
+    </div>
   </div>
 
   <a id="nerd_facts_show_hide" class="btn btn-primary btn-large" style="left: 0px">Nerd Facts</a>
