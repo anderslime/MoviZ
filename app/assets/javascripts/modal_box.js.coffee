@@ -3,7 +3,7 @@ class ModalBox
   header: null
   body: null
 
-  constructor: (input_id, title = "Modal title") ->
+  constructor: (input_id, title = "Modal title", body = "Modal body") ->
     @info_box = $("#info-container").
       find(".empty").
       clone().
@@ -11,15 +11,22 @@ class ModalBox
       attr(
         id: input_id
       )
-
-    @set_title(title)
+    
     @header = @info_box.find('.modal-header')
     @body   = @info_box.find('.modal-body')
+    @set_title(title)
+    @set_body(body)
+
     @append_to_canvas()
 
   set_title: (title) ->
-    @info_box.find(".modal-header").append(
+    @header.append(
       $("<h3>").text(title)
+    )
+    
+  set_body: (body) ->
+    @body.append(
+      body
     )
 
   append_to_canvas: ->

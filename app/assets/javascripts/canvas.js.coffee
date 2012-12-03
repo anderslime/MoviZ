@@ -25,14 +25,15 @@ class Canvas
     node.hover_box = hb
 
   create_movie_info_box: (node) ->
-    modal = new ModalBox("movie-#{node.id}", node.title)
-    node.modal_box = modal
-    modal.body.append(
-      $("<p>").text(node.title)
+    body = $("<p>").text(node.title).after(
       $("<img>").attr(
         src: (if node.large_image is null then null else node.large_image.url),
         class: "img-polaroid"
       )
     )
+    
+    modal = new ModalBox("movie-#{node.id}", node.title, body)
+    node.modal_box = modal
+
 
 window.Canvas = Canvas
