@@ -1,7 +1,7 @@
 class Node
   clicks: 0
 
-  constructor: (@id, @title, @small_image, @large_image) ->
+  constructor: (@id, @title, @rating, @released, @genres, @directors, @small_image, @large_image) ->
 
   on_single_double_click: ->
     @clicks++

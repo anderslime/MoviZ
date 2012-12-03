@@ -12,7 +12,7 @@ class HoverBox
 
     @set_image_url(@image_url)
     @set_title(@title)
-    @set_release_year(@year)
+    @set_release_year(@release_year)
     @set_rating(@rating)
     @set_genres(@genres)
     @append_to_canvas()

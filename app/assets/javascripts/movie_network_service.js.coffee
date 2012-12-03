@@ -27,6 +27,10 @@ class MovieNetworkService
     return new Node(
       json.movie_id,
       json.title,
+      json.rating,
+      json.released,
+      json.genres,
+      json.directors,
       (if json.image_data is null then null else json.image_data.small),
       (if json.image_data is null then null else json.image_data.large)
     )

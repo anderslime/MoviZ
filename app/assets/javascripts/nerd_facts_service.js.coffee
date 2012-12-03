@@ -9,6 +9,7 @@ class NerdFactsService
     @nerd_facts.bind_show_hide(=>
       @centrality.fetch_and_set_nerd_facts()
       @clusters.fetch_and_set_clusters()
+      $("#nerd-tabs a.centrality").tab("show")
       @d3graph.move_graph(200,0)
     , =>
       @d3graph.move_graph(0,0)

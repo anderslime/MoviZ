@@ -1,9 +1,12 @@
 class Movie < ActiveRecord::Base
-  attr_accessible :image_data, :rating, :movie_id,  :title, :related, :api_id
+  attr_accessible :image_data, :rating, :movie_id,  :title, :related, :api_id,
+                  :released, :director, :genres
+
   self.primary_key = :movie_id
 
   validates_presence_of :movie_id
 
+  serialize :genres, Array
   serialize :related, Array
   serialize :image_data, Hash
 

@@ -18,9 +18,9 @@ class Canvas
       node.id,
       node.large_image.url,
       node.title,
-      "2009",
-      "10",
-      "Horror, Drama"
+      node.released,
+      node.rating,
+      node.genres.join(', ')
     )
     node.hover_box = hb
 

@@ -43,13 +43,24 @@ module MovieDatabases
           nil
         end
 
+        genres   = if data["genres"].present? && !data["genres"].empty?
+          data["genres"].map {|genre| genre["name"] }
+        else
+          nil
+        end
+
+        director = data["directors"].present? ? data["directors"].map {|d| d["name"]} : nil
+
         {
           movie_id:   data["ids"]["movieId"][/\d+/].to_i,
-          api_id:    data["ids"]["movieId"],
+          api_id:     data["ids"]["movieId"],
           title:      data["title"],
-          image_data:  image_data,
+          image_data: image_data,
           related:    related_movies,
-          rating:     data["rating"]
+          rating:     data["rating"],
+          released:   data["releaseYear"],
+          genres:     genres,
+          director:   director
         }
       end
 
