@@ -8,23 +8,22 @@ class Tutorial
     else
       @enable_tutorial()
 
-    
   enable_tutorial: () ->
     @enabled = true
     $('#start-tutorial').show()
     $('#start-tutorial').click (e) =>
       e.preventDefault()
       @run_tutorial()
-      
+
     $('#next-step').click (e) =>
       e.preventDefault()
       @run_tutorial()
-    
+
     $('#prev-step').click (e) =>
       e.preventDefault()
       @step = @step - 1
       @run_tutorial()
-      
+
     $('#start-tutorial').hover(
       () ->
         $(this).clearQueue()
@@ -37,8 +36,7 @@ class Tutorial
   disable_tutorial: () ->
     @enabled = false
     $('#start-tutorial').hide()
-  
-  
+
   run_tutorial: () ->
     switch @step
       when 1
@@ -65,19 +63,17 @@ class Tutorial
           @run_tutorial()
       when 5
         @next_step()
-        $('#end-tutorial').unbind('click')   
-    
+        $('#end-tutorial').unbind('click')
+
   next_step: () ->
     @hide_step(@step - 1)
     @show_step(@step)
     @step = @step + 1
-    
-    console.log(@step)
-    
+
   show_step: (step) ->
     $("#step-#{step}").show()
-    
+
   hide_step: (step) ->
     $("#step-#{step}").hide()
-    
+
 window.Tutorial = Tutorial
