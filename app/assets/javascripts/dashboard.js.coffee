@@ -23,12 +23,16 @@ jQuery ->
   )
   nerd_facts_service.setup_nerd_facts()
 
+  # Initalize tutorial
+  tutorial = new Tutorial()
+  
   # Initialize network visualization
   theater = new visualizer.Theater()
-  network_visual_service = new visualizer.NetworkVisualizeService(service, theater, nerd_facts)
+  network_visual_service = new visualizer.NetworkVisualizeService(service, theater, tutorial, nerd_facts)
 
   # Initialize movie form
   autocomplete = new visualizer.MovieAutocomplete()
   movie_form = new visualizer.MovieForm('movie-form')
   movie_form.bind_movie_form(network_visual_service)
   movie_form.activate_autocomplete(autocomplete)
+

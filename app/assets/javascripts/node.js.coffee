@@ -22,10 +22,10 @@ class Node
       )
 
   on_single_click: ->
-    @modal_box.modal()
+    service.add_connected_movies(@id)
 
   on_double_click: ->
-    service.add_connected_movies(@id)
+    @modal_box.modal()
 
   on_mouse_over: ->
     @hover_box.show()

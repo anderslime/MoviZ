@@ -1,0 +1,180 @@
+$top-gap: 40px;
+
+#footer {
+  background-color: #f5f5f5;
+  height: 60px;
+}
+
+.credit {
+  margin: 40px 0;
+  color: gray;
+  font-size: 1.2em;
+
+  .name {
+    color: darken(gray, 10%);
+  }
+}
+
+line.link {
+  stroke: #ccc;
+  stroke-width: 1.5px;
+}
+
+.container-fluid {
+  padding: 0;
+  background: lighten(black, 5%);
+}
+
+#moviz {
+  padding-top: 40px;
+}
+
+
+#theater-container {
+  width: 1000px;
+  height: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  position:relative;
+  overflow: hidden;
+
+  .theater-dashboard {
+    width: 350px;
+    height: 50px;
+    position: absolute;
+    top: 225px;
+    left: 280px;
+//    z-index: 11;
+    padding: 20px;
+
+    input {
+      height: 30px;
+      width: 450px;
+      font-size: 20px;
+      padding: 12px;
+    }
+
+    button {
+      margin-left: 70px;
+      height: 50px;
+      font-size: 25px;
+      width: 350px;
+    }
+
+    #show-button {
+      position: absolute;
+//      z-index: 10;
+    }
+  }
+
+  #nerd_facts_box {
+    position: absolute;
+    width: 425px;
+    height: 375px;
+    padding: 0;
+//    z-index: 1;
+    display: none;
+    right: -435px;
+    padding: 70px 35px 50px 10px;
+    -moz-box-shadow: -2px 2px 2px #999;
+    -webkit-box-shadow: -2px 2px 2px #999;
+    box-shadow: -2px 2px 2px #999;
+    top: 0;
+
+    h3 {
+      margin: 0;
+    }
+
+    ul#nerd-tabs {
+      margin-bottom: 5px;
+    }
+
+    #clusters .empty {
+      display: none;
+    }
+
+    #nerd_facts_show_hide {
+      position: absolute;
+//      z-index: 1;
+      top: 100px;
+    }
+
+    .fact-highscore-list {
+      width: 190px;
+      float: left;
+      background: darken(#EEE, 10%);
+      margin-bottom: 10px;
+      margin-right: 10px;
+    }
+  }
+
+  .hover-box {
+    height: 120px;
+    min-width: 280px;
+    left: 50px;
+    top: 350px;
+    background: white;
+    position: absolute;
+//    z-index: 10;
+    display: none;
+
+    img {
+      height: 120px;
+    }
+
+    .hover-info {
+      float: left;
+      padding-left: 5px;
+    }
+
+    .attribute {
+      font-weight: 600;
+    }
+  }
+
+  .top-curtain {
+    width: 1000px;
+//    z-index: 3;
+    height: 80px;
+    position: absolute;
+    background: url('cinema/top-curtain.png') no-repeat top left;
+  }
+
+  .left-curtain, .right-curtain {
+    height: 550px;
+    width: 500px;
+    position: absolute;
+//    z-index: 3;
+  }
+
+  .left-curtain {
+    left: 10px;
+    background-image: url('cinema/left-curtain.png');
+    background-repeat: no-repeat;
+    background-position: 0 right;
+  }
+
+  .right-curtain {
+    right: 0px;
+    background-image: url('cinema/right-curtain.png');
+    background-repeat: no-repeat;
+    background-position: 0 right;
+  }
+
+  .seats {
+    width: 1000px;
+    height: 133px;
+    position: absolute;
+    bottom: 40px;
+    background: url('cinema/seats_invis.png') no-repeat bottom center;
+  }
+
+  svg {
+    margin-left: 20px;
+    background-color: white;
+    height: 500px;
+    width: 960px;
+//    z-index: 1;
+    position: absolute;
+  }
+}

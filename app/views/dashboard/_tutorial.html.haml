@@ -1,0 +1,51 @@
+= link_to "Start tutorial", "#", id: "start-tutorial"
+
+#tutorial-text
+	.text#step-1
+		%p 
+			%strong Welcome to MoviZ!
+	
+		%p What you are watching here is a small, but awesome network graph! You see the movie you chosen and the four most similar movies. You can expand the network even more. You do this by clicking on another movie. Similiar movies, to the one you have clicked on, will then pop up.
+	
+		%p Try this now.
+	
+		%p.text-info
+			%strong Click on a movie, to load more similar movies.
+	
+	.text#step-2
+		%p 
+			%strong Perfect! You are a natural!
+			You have know expanded the network with some more similar movies. You can see which movies that are similar to each other by following the lines between them.
+	
+		%p To get more information on a movie, you can always hold the mouse over them. You can also double click on a movie, to get full description, casting actors, and much more.
+	
+		%p Try this now.
+	
+		%p.text-info 
+			%strong Double click on a movie, to get full description.
+	
+	.text#step-3
+		%p 
+			%strong You are a quick learner! Incredible, keep going!
+			Now as you load more movies in, you will see that some of them tends to group together. MoviZ provides you with a lot of stats about how the movies corresponds to each other i terms of similarities. All these stats are availiable under the "Nerd Facts" tap, which can be shown by clicking the Nerd Facts button to the right.
+
+		%p Try this now.
+
+		%p.text-info 
+			%strong Click the Nerd Facts button, to show all the amazing stats.
+			
+	.text#step-4
+		%p 
+			%strong Wow, amazing you just get it! 
+			
+		%p Time for celebration, you have completed the tutorial!
+
+		%p.text-info 
+			%strong 
+				Let's start playing!
+				= link_to "End tutorial", "#", id: "end-tutorial"
+	
+	
+.actions
+	= link_to "Next step", "#", id: "next-step"
+	= link_to "Previous step", "#", id: "prev-step"

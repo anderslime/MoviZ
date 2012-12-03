@@ -1,12 +1,19 @@
 <div id="theater-container">
-  <div class="graph"></div>
+  <div id="graph"></div>
+  <div id="info-container">
+    <%= render "modal" %>
+  </div>
+  <div id="nerd-facts">
+    <%= render 'nerd_facts' %>
+  </div>
+  <div id="tutorial">
+    <%= render "tutorial" %>
+  </div>
   <div class="top-curtain"></div>
   <div class="right-curtain"></div>
   <div class="left-curtain"></div>
   <div class="seats"></div>
-  <div id="info-container">
-    <%= render "modal" %>
-  </div>
+
   <%= form_tag '/', :method => 'get', :class => "theater-dashboard", :id => 'movie-form' do %>
       <%= text_field_tag :title,
         nil,
@@ -16,7 +23,6 @@
         :tabindex => 1
       %>
   <% end %>
-  <%= render 'nerd_facts' %>
   <div id="hover-container">
     <%= render 'hover' %>
   </div>

@@ -2,6 +2,8 @@
 //= require jquery_ujs
 //= require bootstrap
 //= require_self
+
+//= require tutorial
 //= require node
 //= require modal_box
 //= require hover_box

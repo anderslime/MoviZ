@@ -1,0 +1,16 @@
+#tutorial {
+  position: absolute;
+  left: 80px;
+  top: 70px;
+  
+  #tutorial-text{
+    width: 300px;
+    .text {
+      display:none;
+    }
+  }
+
+  .actions {
+    display:none;
+  }
+}

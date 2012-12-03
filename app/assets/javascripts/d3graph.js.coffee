@@ -80,7 +80,7 @@ class D3Graph
     @nodes = @force.nodes()
     @links = @force.links()
 
-    @canvas = d3.select("#theater-container .graph")
+    @canvas = d3.select("#theater-container #graph")
       .append('svg')
       .attr("pointer-events", "all")
       .attr("width", @width)
