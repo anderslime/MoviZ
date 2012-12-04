@@ -51,17 +51,27 @@ class Tutorial
         $('#nerd_facts_show_hide').on('click.tutorial', => @run_tutorial())
       when 4
         @next_step()
-        $('.actions').hide()
         $('#nerd_facts_show_hide').off('.tutorial')
-        $('#end-tutorial').on('click.tutorial', => @run_tutorial())
+        $('.clusters').on('click.tutorial', => @run_tutorial())
       when 5
+        @next_step()
+        $('.clusters').off('.tutorial')
+        $('.cluster').on('hover.tutorial', => @run_tutorial())
+      when 6
+        @next_step()
+        $('.actions').remove()
+        $('.cluster').off('.tutorial')
+        $('#end-tutorial').on('click.tutorial', => @run_tutorial())
+      when 7
         @next_step()
         $('#end-tutorial').off('.tutorial')   
 
   next_step: () ->
+    console.log(@step)
     @hide_step(@step - 1)
     @show_step(@step)
     @step = @step + 1
+    
 
   show_step: (step) ->
     $("#step-#{step}").show()
