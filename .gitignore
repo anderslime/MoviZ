@@ -14,6 +14,9 @@
 /log/*.log
 /tmp
 
+# Ignore compiled python files
+/lib/python/networkx
+
 # Ignore config files
 .rspec
 .rvmrc
