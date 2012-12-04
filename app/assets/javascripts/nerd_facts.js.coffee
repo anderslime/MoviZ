@@ -14,8 +14,8 @@ class NerdFacts
       @hide()
     )
 
-  initialize: ->  
-    # TODO: Should be removed, does nothing
+  initialize: ->
+    @button.fadeIn()
 
   show: ->
     @shown = true

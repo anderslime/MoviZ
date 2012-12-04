@@ -8,9 +8,11 @@ class Tutorial
     else
       @enable_tutorial()
 
+  show_button: ->
+    $('#start-tutorial').fadeIn()
+
   enable_tutorial: () ->
     @enabled = true
-    $('#start-tutorial').show()
     $('#start-tutorial').click (e) =>
       e.preventDefault()
       @run_tutorial()
@@ -18,7 +20,7 @@ class Tutorial
     $('#next-step').click (e) =>
       e.preventDefault()
       @run_tutorial()
-      
+
     $('#start-tutorial').hover(
       () ->
         $(this).clearQueue()
