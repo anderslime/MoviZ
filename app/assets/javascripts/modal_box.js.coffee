@@ -25,7 +25,7 @@ class ModalBox
     )
     
   set_body: (body) ->
-    @body.append(
+    @body.prepend(
       body
     )
 

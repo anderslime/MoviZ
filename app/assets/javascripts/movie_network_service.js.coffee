@@ -16,6 +16,7 @@ class MovieNetworkService
 
     for node in nodes
       movie_node = @create_movie_by_json(node)
+      console.log(movie_node)
       @canvas.add_node(movie_node)
 
     for edge in edges
@@ -24,6 +25,7 @@ class MovieNetworkService
     @canvas.repaint()
 
   create_movie_by_json: (json) ->
+    default_image_url = "/assets/popcorn.jpg"
     return new Node(
       json.movie_id,
       json.title,
@@ -31,7 +33,8 @@ class MovieNetworkService
       json.released,
       json.genres,
       json.directors,
-      (if json.image_data is null then null else json.image_data.small),
-      (if json.image_data is null then null else json.image_data.large)
+      (if json.image_data.small is undefined then {url: default_image_url, width: null, height: null} else json.image_data.small),
+      (if json.image_data.large is undefined then {url: default_image_url, width: null, height: null} else json.image_data.large)
     )
+    
 window.MovieNetworkService = MovieNetworkService

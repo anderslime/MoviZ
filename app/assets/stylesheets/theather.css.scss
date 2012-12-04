@@ -74,7 +74,6 @@ line.link {
     top: 350px;
     background: white;
     position: absolute;
-//    z-index: 10;
     display: none;
 
     img {
@@ -93,7 +92,6 @@ line.link {
 
   .top-curtain {
     width: 1000px;
-//    z-index: 3;
     height: 80px;
     position: absolute;
     background: url('cinema/top-curtain.png') no-repeat top left;
@@ -103,11 +101,10 @@ line.link {
     height: 550px;
     width: 500px;
     position: absolute;
-//    z-index: 3;
   }
 
   .left-curtain {
-    left: 10px;
+    left: 15px;
     background-image: url('cinema/left-curtain.png');
     background-repeat: no-repeat;
     background-position: 0 right;

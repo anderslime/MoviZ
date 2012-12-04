@@ -25,12 +25,13 @@ class Canvas
     node.hover_box = hb
 
   create_movie_info_box: (node) ->
-    body = $("<p>").text(node.title).after(
-      $("<img>").attr(
-        src: (if node.large_image is null then null else node.large_image.url),
-        class: "img-polaroid"
+    if node.large_image && node.large_image.url
+      body = $("<img>").attr(
+        src: node.large_image,
+        class: "img-polaroid img-large"
       )
-    )
+    else
+      body = ""
     
     modal = new ModalBox("movie-#{node.id}", node.title, body)
     node.modal_box = modal
