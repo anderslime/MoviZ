@@ -51,19 +51,42 @@ class D3Graph
     node = @canvas.selectAll("g.node").data(@nodes, (d) -> d.id)
 
     nodeEnter = node.enter().append("svg:g")
-      .attr("class", "node")
+      .attr("class", (d) -> "node node-#{d.id}")
       .on("click", (d) -> d.on_single_double_click())
       .on("mouseover", (d) -> d.on_mouse_over())
       .on("mouseout", (d) -> d.on_mouse_out())
       .call(@force.drag)
+      
+      
+    nodeEnter.append("svg:rect").attr(
+      class: "border",
+      width: 30,
+      height: 40,
+      x: -30/2,
+      y: -40/2
+    )
 
-    nodeEnter.append("svg:image")
-      .attr("class", "circle")
-      .attr("xlink:href", (d) -> d.small_image.url)
-      .attr("x", (d) -> -30/2)
-      .attr("y",  (d) -> -30/2)
-      .attr("width", (d) -> 30)
-      .attr("height", (d) -> 30)
+    nodeEnter.append("svg:image").attr(
+      class: "circle",
+      "xlink:href": (d) -> d.small_image.url,
+      x: -30/2,
+      y: -40/2,
+      width: 30,
+      height: 40
+    )
+      # .attr("class", "circle")
+      # .attr("xlink:href", (d) -> d.small_image.url)
+      # .attr("x", (d) -> -30/2)
+      # .attr("y",  (d) -> -30/2)
+      # .attr("width", (d) -> 30)
+      # .attr("height", (d) -> 30)
+      # .attr("stroke", "red")
+      
+    # nodeEnter.append("svg:text")
+    #   .text("hej")
+    
+      
+
 
     node.exit().remove()
 

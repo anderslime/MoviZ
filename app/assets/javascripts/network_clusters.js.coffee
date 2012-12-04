@@ -15,6 +15,14 @@ class NetworkClusters
 
   set_clusters: (clusters) ->
     @create_cluster(movie_list, i) for movie_list, i in clusters
+    $('.cluster').hover(
+      () ->
+        for id in $(this).data('ids') 
+          $(".node-#{id}").find('.border').css("stroke", "red")
+      () ->
+        for id in $(this).data('ids') 
+          $(".node-#{id}").find('.border').css("stroke", "")
+    )
 
   create_cluster: (movie_list, cluster_index) ->
     cluster_box = $("#cluster-container")
@@ -24,7 +32,7 @@ class NetworkClusters
       .toggleClass("active")
       .attr(
         id: "cluster-#{cluster_index}"
-      )
+      ).data("ids", movie_list)
 
     cluster_list = cluster_box.find(".cluster-list")
 

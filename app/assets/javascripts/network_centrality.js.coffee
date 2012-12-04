@@ -30,6 +30,15 @@ class NetworkCentrality
         canvas_graph_node.create_link(
           "#{@list_title(score.movie.title, 15)} - #{parseFloat(score.value).toFixed(2)}"
         )
+        .data("id", score.movie.movie_id)
+        .hover(
+          () ->
+            id = $(this).data('id', ) 
+            $(".node-#{id}").find('.border').css("stroke", "red")
+          () ->
+            id = $(this).data('id')
+            $(".node-#{id}").find('.border').css("stroke", "")
+        )
       )
     )
 

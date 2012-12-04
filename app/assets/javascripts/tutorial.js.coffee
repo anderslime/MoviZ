@@ -18,12 +18,7 @@ class Tutorial
     $('#next-step').click (e) =>
       e.preventDefault()
       @run_tutorial()
-
-    $('#prev-step').click (e) =>
-      e.preventDefault()
-      @step = @step - 1
-      @run_tutorial()
-
+      
     $('#start-tutorial').hover(
       () ->
         $(this).clearQueue()
@@ -43,27 +38,23 @@ class Tutorial
         @next_step()
         $('.actions').show()
         $('#start-tutorial').remove()
-        $('#graph').find("g").click () =>
-          @run_tutorial()
+        $('#graph').find("g").on('click.tutorial', => @run_tutorial())
       when 2
         @next_step()
-        $('#graph').find("g").unbind('click')
-        $('#graph').find("g").dblclick () =>
-          @run_tutorial()
+        $('#graph').find("g").off('.tutorial')
+        $('#graph').find("g").on('dblclick.tutorial', => @run_tutorial())
       when 3
         @next_step()
-        $('#graph').find("g").unbind('dblclick')
-        $('#nerd_facts_show_hide').click () =>
-          @run_tutorial()
+        $('#graph').find("g").off('.tutorial')
+        $('#nerd_facts_show_hide').on('click.tutorial', => @run_tutorial())
       when 4
         @next_step()
         $('.actions').hide()
-        $('#nerd_facts_show_hide').unbind('click')
-        $('#end-tutorial').click () =>
-          @run_tutorial()
+        $('#nerd_facts_show_hide').off('.tutorial')
+        $('#end-tutorial').on('click.tutorial', => @run_tutorial())
       when 5
         @next_step()
-        $('#end-tutorial').unbind('click')
+        $('#end-tutorial').off('.tutorial')   
 
   next_step: () ->
     @hide_step(@step - 1)

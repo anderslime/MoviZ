@@ -26,7 +26,10 @@ window.d3graph ||= {}
 
 jQuery ->
   $('#navbar').scrollspy()
+  
   $('.popover-link').popover(
     placement: 'left',
     trigger: 'hover'
   )
+    
+  
