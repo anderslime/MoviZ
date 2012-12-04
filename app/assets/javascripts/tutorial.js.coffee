@@ -1,6 +1,7 @@
 class Tutorial
   enabled: false
   step: 1
+  max_steps: 5
 
   toggle_tutorial: () ->
     if @enabled
@@ -33,12 +34,14 @@ class Tutorial
   disable_tutorial: () ->
     @enabled = false
     $('#start-tutorial').hide()
+    $('#tutorial-text').hide()
 
   run_tutorial: () ->
     switch @step
       when 1
         @next_step()
         $('.actions').show()
+        $('#tutorial-text').show()
         $('#start-tutorial').remove()
         $('#graph').find("g").on('click.tutorial', => @run_tutorial())
       when 2
@@ -65,9 +68,11 @@ class Tutorial
       when 7
         @next_step()
         $('#end-tutorial').off('.tutorial')   
+        $('#tutorial-text').remove()
 
   next_step: () ->
     console.log(@step)
+    $('.bar').css('width', 100/@max_steps*(@step-1) + "%")
     @hide_step(@step - 1)
     @show_step(@step)
     @step = @step + 1

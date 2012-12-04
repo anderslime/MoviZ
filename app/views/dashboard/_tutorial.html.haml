@@ -1,6 +1,8 @@
 = link_to "Are you lost? Start tutorial!", "#", id: "start-tutorial", class: "btn"
 
 #tutorial-text
+	.progress.progress-striped.active
+		.bar
 	.text#step-1
 		= render "dashboard/tutorial/step_1"
 	.text#step-2
