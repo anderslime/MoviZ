@@ -1,6 +1,9 @@
 // Place all the styles related to the dashboard controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+body {
+  height: 100%;
+}
 #main {
   background: #EEE;
   color: lighten(black, 30%);
@@ -22,7 +25,6 @@ section {
 
 #footer {
   background-color: lighten(black, 4%);
-  height: 60px;
 }
 
 .credit {

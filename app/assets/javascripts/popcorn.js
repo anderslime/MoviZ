@@ -18,7 +18,7 @@ function __ShowSnow(settings)
     var i; 
 
     var doc_width = $(window).width() - 10;
-    var doc_height = $(window).height() + 300;
+    var doc_height = $(window).height();
 
     dx = [];
     xp = [];
