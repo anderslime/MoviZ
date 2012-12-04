@@ -57,36 +57,24 @@ class D3Graph
       .on("mouseout", (d) -> d.on_mouse_out())
       .call(@force.drag)
       
-      
+    height = 40*(3/4)
+    width = 30*(3/4)
     nodeEnter.append("svg:rect").attr(
       class: "border",
-      width: 30,
-      height: 40,
-      x: -30/2,
-      y: -40/2
+      width: width,
+      height: height,
+      x: -width/2,
+      y: -height/2
     )
 
     nodeEnter.append("svg:image").attr(
       class: "circle",
       "xlink:href": (d) -> d.small_image.url,
-      x: -30/2,
-      y: -40/2,
-      width: 30,
-      height: 40
+      width: width,
+      height: height,
+      x: -width/2,
+      y: -height/2
     )
-      # .attr("class", "circle")
-      # .attr("xlink:href", (d) -> d.small_image.url)
-      # .attr("x", (d) -> -30/2)
-      # .attr("y",  (d) -> -30/2)
-      # .attr("width", (d) -> 30)
-      # .attr("height", (d) -> 30)
-      # .attr("stroke", "red")
-      
-    # nodeEnter.append("svg:text")
-    #   .text("hej")
-    
-      
-
 
     node.exit().remove()
 
