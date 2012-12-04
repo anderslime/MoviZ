@@ -28,7 +28,7 @@ class NetworkCentrality
     list.append(
       $('<li>').append(
         canvas_graph_node.create_link(
-          "#{@list_title(score.movie.title, 15)} - #{parseFloat(score.value).toFixed(2)}"
+          "#{@list_title(score.movie.title, 14)} - #{parseFloat(score.value).toFixed(2)}"
         )
         .data("id", score.movie.movie_id)
         .hover(

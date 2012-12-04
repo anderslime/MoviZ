@@ -20,6 +20,8 @@
 //= require theater
 //= require movie_network_service
 //= require dashboard
+//= require popcorn
+//= require popcorn_rain
 
 window.visualizer ||= {}
 window.d3graph ||= {}

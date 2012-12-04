@@ -25,7 +25,7 @@ jQuery ->
 
   # Initalize tutorial
   tutorial = new Tutorial()
-  
+
   # Initialize network visualization
   theater = new visualizer.Theater()
   network_visual_service = new visualizer.NetworkVisualizeService(service, theater, tutorial, nerd_facts)
@@ -35,4 +35,8 @@ jQuery ->
   movie_form = new visualizer.MovieForm('movie-form')
   movie_form.bind_movie_form(network_visual_service)
   movie_form.activate_autocomplete(autocomplete)
+
+  # POPCORN RAIN
+  popcorn_rain = new PopcornRain()
+  popcorn_rain.bind_popcorn_button()
 

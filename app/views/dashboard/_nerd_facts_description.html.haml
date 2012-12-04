@@ -1,36 +1,54 @@
-%h1 Nerd facts
+%section{id: "nerd-facts"}
+  %div{class: "page-header"}
+    %h1 Nerd facts
 
-%p
-	The reason MoviZ.dk provides you with Nerd Facts is so you will find the right movie. First of all it is you who decide how the network should be like and when with some different algorithms and network theory this will help you find out which movies that is just right for you. Each algorithm is described below in a simple language so you don't have to be a network theory master to master the knowledge. 
+  %p
+    The reason MoviZ.dk provides you with Nerd Facts is so you will find the right movie. First of all it is you who decide how the network should expand. With the different algorithms and network theory we will help you find out which movies that is just right for you. All the nerdy details is described in a simple language so you don't have to be a network theory master to master the knowledge.
 
-%h2 Centralities
-%p
-	Centrality says something about how central and how much influences a movie have to the network. There are different ways to calculate this:
+  %h2 Centralities
+  %p
+    Centrality says something about how central and how much influences a movie have to the network. There are different ways to calculate the centrality and the whole point is to find the movie with the most influence to the graph. You will think that this movie is a better one because it is more similar to the chosen movie and the network. There are different ways to calculate this:
 
-%h2{id: "eigenvector-centrality"} Eigenvector centrality - common to the chosen movie
-%p
-	The higher Eigenvector centrality the more influence and the more in common with the chosen movie where the network starts from.
+  %h3{id: "eigenvector-centrality"}
+    Best recommendation
+    %small Eigenvector centrality
 
-%h2{id: "betweenness-centrality"} Betweenness centrality - must see movie
-%p
-	Betweenness centrality is high when it appears in many random shortest path. Shortest path means if you go from movie A to movie B then you go through some different movies, so if a chosen movie exist in many random shortest path then the Betweenness centrality is high. What this actually calculates is the must see movie in the network.
+  %p
+    The Eigenvector centrality calculates the influences of a movie in the network by looking how high the eigenvector centrality is for the connected movies. This is done for all the movies in the network. This means that every movies has been taking to count. The higher Eigenvector centrality the more central that movies is for the given network. This means that the movie with highest Eigenvector centrality is the most central movie. For the user this is very useful because it gives the actual movies that has must influences to the whole network. After testing, Eigenvector centrality is the most useful way to calculate the movies with most influences and thereby it gives the best recommendation to user.
 
-%h2{id: "closeness-centrality"} Closeness centrality - common with all other movie
-%p
-	The higher Closeness centrality the lower sum of distances to all other movies. This means that if Closeness centrality is high for a movie then this movie is close to all other movies. This tell something about that is has a lot in common to all the other movies.
+  %h3{id: "betweenness-centrality"}
+    Must see movie
+    %small Betweenness centrality
 
-%h2{id: "degree-centrality"} Degree centrality - movie with most specific similarities
-%p
-	Degree centrality calculates the the numbers of similarities, which is the connection to others movies, compared to how many connections there are in the whole network. When this is high for a movie, the movie has many specific similarities.
+  %p
+    Betweenness centrality is high when it appears in many random shortest path. Shortest path means if you go from movie A to movie B then you go through some different movies, so if a chosen movie exist in many random shortest path then the Betweenness centrality is high. What this actually calculates is the must see movie in the network.
 
-%h2 Clusters and communities - the movies which are very similar
-%p
-	Clusters and communities in a network are like the different groupings. Especially in a movie network, movies tend to get in different groups. This is very clear when searching for Pulp Fiction then after some expanding of the network a group of gangstar movies, aka a gangstar community, is quickly established.
+  %h3{id: "closeness-centrality"}
+    Most similar with all movies
+    %small Closeness centrality
 
-%h2{id: "clustering-coefficient"} Clustering coefficient
-%p
-	The cluster coefficient calculate how much a movie tend to cluster. This tells something about that the movie has many close connections. 
+  %p
+    The higher Closeness centrality the lower sum of distances to all other movies. This means that if Closeness centrality is high for a movie then this movie is close to all other movies. This tell something about that is has a lot in common to all the other movies.
 
-%h2 Communities
-%p
-	As you properly have discovered some movies tends to group together. The different groups aka communities tell something about which movies that really have a lot in common together.
+  %h3{id: "degree-centrality"}
+    Most specific similarities
+    %small Degree centrality
+
+  %p
+    Degree centrality calculates the the numbers of similarities, which is the connection to others movies, compared to how many connections there are in the whole network. When this is high for a movie, the movie has many specific similarities.
+
+  %h2
+    Communities
+  %p
+    Communities in a network are like the different groupings. Especially in a movie network, movies tend to get in different groups. This is very clear when searching for Pulp Fiction then after some expanding of the network a group of gangstar movies, aka a gangstar community, is quickly established.
+
+  %h3{id: "clustering-coefficient"} Clustering coefficient
+  %p
+    The cluster coefficient calculate how much a movie tend to cluster. This tells something about that the movie has many close connections.
+
+  %h3
+    Communities
+    %small These movies have a lot in common
+
+  %p
+    As you properly have discovered some movies tends to group together. The different groups (communities) tell something about which movies that really have a lot in common together.
