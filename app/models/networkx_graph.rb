@@ -31,7 +31,7 @@ class NetworkxGraph
     begin
       @@nx.eigenvector_centrality(@nx_graph).to_enum
     rescue RubyPython::PythonError => e
-      [[]]
+      []
     end
   end
 
