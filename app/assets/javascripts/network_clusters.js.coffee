@@ -1,4 +1,6 @@
 class NetworkClusters
+  max_list_items: 3
+  
   constructor: (@d3graph) ->
 
   fetch_and_set_clusters: ->
@@ -17,9 +19,25 @@ class NetworkClusters
     @create_cluster(movie_list, i) for movie_list, i in clusters
     $('.cluster').hover(
       () ->
+        height = $(this).find(".cluster-list").first().outerHeight()
+        $(this).find(".more").hide()
+        $(this).animate({
+          height: height
+        },
+          'fast',
+          'linear'
+        )
         for id in $(this).data('ids') 
           $(".node-#{id}").find('.border').css("stroke", "red")
       () ->
+        $(this).animate({
+          height: '80px'
+        },
+          'fast',
+          'linear'
+          () ->
+            $(this).find(".more").show()
+        )
         for id in $(this).data('ids') 
           $(".node-#{id}").find('.border').css("stroke", "")
     )
@@ -40,9 +58,19 @@ class NetworkClusters
     $("#cluster-container").append(cluster_box)
 
   add_movie_to_cluster: (movie_id, cluster_list) ->
+    if cluster_list.find('li').length == @max_list_items
+      cluster_list.append(
+        $("<div>").text("...").attr('class', 'more')
+      )
+    
     movie = @d3graph.find_node(movie_id)
     cluster_list.append(
       $("<li>").text(movie.title)
+    )
+  
+    $('.popover-link').popover(
+      placement: 'left',
+      trigger: 'hover'
     )
 
   remove_clusters: ->

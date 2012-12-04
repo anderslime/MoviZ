@@ -1,7 +1,7 @@
 #nerd_facts_box {
   position: absolute;
   width: 425px;
-  height: 375px;
+  min-height: 375px;
   padding: 0;
   right: -435px;
   padding: 70px 35px 50px 10px;
@@ -18,9 +18,17 @@
     margin-bottom: 5px;
   }
 
-  #clusters .empty {
-    display: none;
+  #clusters {
+    .empty {
+      display: none;
+    }
+    
+    .cluster {
+      height: 80px;
+      overflow: hidden;
+    }
   }
+
 
   #nerd_facts_show_hide {
     position: absolute;

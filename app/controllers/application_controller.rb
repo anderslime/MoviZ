@@ -3,9 +3,9 @@ class ApplicationController < ActionController::Base
 
   helper :all
 
-  # before_filter do |controller|
-  #   initalize_network unless controller.request.format.js?
-  # end
+  before_filter do |controller|
+    initalize_network unless controller.request.format.js? || controller.request.format.json?
+  end
 
   protected
 
