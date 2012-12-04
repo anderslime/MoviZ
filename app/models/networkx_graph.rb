@@ -28,7 +28,11 @@ class NetworkxGraph
   end
 
   def eigenvector_centrality
-    @@nx.eigenvector_centrality(@nx_graph).to_enum
+    begin
+      @@nx.eigenvector_centrality(@nx_graph).to_enum
+    rescue RubyPython::PythonError => e
+      [[]]
+    end
   end
 
   def communities
