@@ -84,6 +84,7 @@ function __ShowSnow(settings)
 
         for (i = 0; i < no; i++)
             flakes[i].hide();
+    $(".flake").remove()
   }
     
     animateSnow();
