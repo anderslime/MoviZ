@@ -4,9 +4,9 @@ class NetworkVisualizeService
   show_network: (title) ->
     @api_service.initialize_network_from(escape(title), =>
       @nerd_facts.initialize()
-      @tutorial.show_button()
+      @tutorial.toggle_tutorial()
     )
     @theater.toggle_theater()
-    @tutorial.toggle_tutorial()
+    
 
 window.visualizer.NetworkVisualizeService = NetworkVisualizeService
