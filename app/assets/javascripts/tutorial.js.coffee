@@ -9,11 +9,10 @@ class Tutorial
     else
       @enable_tutorial()
 
-  show_button: ->
-    $('#start-tutorial').fadeIn()
 
   enable_tutorial: () ->
     @enabled = true
+    $('#start-tutorial').fadeIn()
     $('#start-tutorial').click (e) =>
       e.preventDefault()
       @run_tutorial()
@@ -27,9 +26,9 @@ class Tutorial
         $(this).clearQueue()
         $(this).fadeTo(100, 1)
       () ->
-        $(this).delay(2000).fadeTo('normal', 0.10);
+        $(this).delay(2000).fadeTo('normal', 0.15);
     )
-    $('#start-tutorial').delay(7000).fadeTo('normal', 0.10);
+    $('#start-tutorial').delay(8000).fadeTo('normal', 0.15);
 
   disable_tutorial: () ->
     @enabled = false
