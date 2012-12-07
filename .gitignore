@@ -15,7 +15,7 @@
 /tmp
 
 # Ignore compiled python files
-/lib/python/networkx
+.pyc
 
 # Ignore config files
 .rspec
