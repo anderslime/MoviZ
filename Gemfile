@@ -14,6 +14,7 @@ gem 'rest-client'
 gem 'rubypython'
 gem 'pg'
 gem 'haml'
+gem 'newrelic_rpm'
 
 
 # Use unicorn as the app server
