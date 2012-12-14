@@ -1,7 +1,7 @@
 class Network < ActiveRecord::Base
   attr_accessible :id, :edges
 
-  has_many :edges
+  has_many :edges, :dependent => :destroy
 
   def node_ids
     (edges.map(&:source_id)+edges.map(&:target_id)).uniq
