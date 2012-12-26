@@ -1,45 +1,32 @@
 <div id="measurements">
-  <div id="eigenvector_centrality" class="fact-highscore-list thumbnail leftmost">
-    <%= link_to "#eigenvector-centrality" do %>
-      <%= content_tag :h5, "Eigenvector centrality", class: "popover-link", data: {content: popover_content(:eigenvector_centrality)}, title: "Most common to the chosen movie" %>
-    <% end %>
+
+  <%= nerd_facts_box_for "Eigenvector centrality" do |type| %>
+    <%= popover_title type, title: "Best recommendation" %>
     <%= pacman_loading_animation %>
     <ol class="highscore-list"></ol>
-  </div>
+  <% end %>
 
-  <div id="betweenness_centrality" class="fact-highscore-list thumbnail rightmost">
-    <%= link_to "#betweenness-centrality", class: "popover-link" do %>
-      <%= content_tag :h5, "Betweenness centrality", class: "popover-link", data: {content: popover_content(:betweenness_centrality)}, title: "Must see movie" %>
-    <% end %>
-    
+  <%= nerd_facts_box_for "Betweenness centrality" do |type| %>
+    <%= popover_title type, title: "Must see movie" %>
     <%= pacman_loading_animation %>
     <ol class="highscore-list"></ol>
-  </div>
+  <% end %>
 
-  <div id="closeness_centrality" class="fact-highscore-list thumbnail leftmost">
-    <%= link_to "#closeness-centrality" do %>
-      <%= content_tag :h5, "Closeness centrality", class: "popover-link", data: {content: popover_content(:closeness_centrality)}, title: "Common with all other movie" %>
-    <% end %>
-    
+  <%= nerd_facts_box_for "Closeness centrality" do |type| %>
+    <%= popover_title type, title: "Common with all other movie" %>
     <%= pacman_loading_animation %>
     <ol class="highscore-list"></ol>
-  </div>
+  <% end %>
 
-  <div id="degree_centrality" class="fact-highscore-list thumbnail rightmost">
-    <%= link_to "#degree-centrality" do %>
-      <%= content_tag :h5, "Degree centrality", class: "popover-link", data: {content: popover_content(:degree_centrality)}, title: "Movie with most specific similarities" %>
-    <% end %>
-    
+  <%= nerd_facts_box_for "Degree centrality" do |type| %>
+    <%= popover_title type, title: "Movie with most specific similarities" %>
     <%= pacman_loading_animation %>
     <ol class="highscore-list"></ol>
-  </div>
+  <% end %>
 
-  <div id="clustering_coefficient" class="thumbnail fact-highscore-list leftmost">
-    <%= link_to "#clustering-coefficient" do %>
-      <%= content_tag :h5, "Clustering coefficients", class: "popover-link", data: {content: popover_content(:clustering_coefficients)}, title: "The movies which are very similar" %>
-    <% end %>
-
+  <%= nerd_facts_box_for "Clustering coefficient" do |type| %>
+    <%= popover_title type, title: "The movies which are very similar" %>
     <%= pacman_loading_animation %>
     <ol class="highscore-list"></ol>
-  </div>
+  <% end %>
 </div>
